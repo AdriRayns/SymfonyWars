@@ -1,15 +1,10 @@
-{% set currentPath = app.request.attributes.get('_route') %}
-{% if ( categories is not defined or categories is null) %}
-    {% if (currentPath == 'fos_user_security_login' or currentPath == 'fos_user_registration_register' or
-                            currentPath== 'fos_user_profile_show' or currentPath== 'fos_user_profile_edit') %}
-
-    {% else %}
+{% set allCategories = globalCategories.getAllCategories %}
+{% if allCategories is null %}
     <li class ="dropdown">
         <a href="#">Realizando un mantenimiento del catalogo</a>
     </li>
-    {% endif %}
 {% else %}
-{% for category in categories %} 
+{% for category in allCategories %} 
     {% if category.parent is null%}
     <li class ="dropdown">
         <a  href="#"> {{category.name}} </a>
