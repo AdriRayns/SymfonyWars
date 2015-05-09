@@ -17,13 +17,13 @@
                     <a href="#">Gestion</a>
                 </li>
             </ul>
-            <a href="{{ path('fos_user_security_logout') }}" class="btn btn-primary" role="button"> Cerrar Sesión </a>
+            <a href="{{ path('fos_user_security_logout') }}" style="float:right;margin:7px 0 0 0;" class="btn btn-primary" role="button"> Cerrar Sesión </a>
             {% elseif is_granted('ROLE_USER') %}
                 <li style="float:height:50px;margin:0 5px 0 5px;" class ="dropdown">
                     <a href="{{path('fos_user_profile_show')}}">Perfil</a>
                 </li>
             </ul>
-             <a href="{{ path('fos_user_security_logout') }}" class="btn btn-primary" role="button"> Cerrar Sesión </a>
+             <a href="{{ path('fos_user_security_logout') }}" style="float:right;margin:7px 0 0 0;" class="btn btn-primary" role="button"> Cerrar Sesión </a>
             {% else %}
                 <li style="float:height:50px;margin:0 5px 0 5px;" class ="dropdown">
                     <a href="{{path('fos_user_registration_register')}}">Registro</a>
