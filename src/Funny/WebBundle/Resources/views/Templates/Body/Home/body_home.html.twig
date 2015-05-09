@@ -4,8 +4,8 @@
 <div class="row">
     {% if (products is defined and products is not empty) %}
     <!-- @if($datos['primerDestacado'] != null) -->
-    <div class="col-xs-12 col-sm-12 col-lg-12 militarBody">
-        <header class="colorMarron myFont myBigFont"><p> PRODUCTOS DESTACADOS</p></header>
+    <div class="col-xs-12 col-sm-12 col-lg-12 ">
+        <header class=""><p> PRODUCTOS DESTACADOS</p></header>
         <div id="myCarouselDestacados" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators indicators">
@@ -28,10 +28,10 @@
                     <div class="col-xs-6 col-sm-4 col-lg-4 vOffset1">
                         <img class="img-responsive img-center" src="{{asset('bundles/web/img/') }}{{products[0].imgRoute}}" title="amd" alt="amd">
                     </div>
-                    <div class="hidden-xs col-sm-4 col-lg-4  descripcionDestacados vOffset3">
+                    <div class="hidden-xs col-sm-4 col-lg-4  font-weight:bold; vOffset3">
                         <p>{{products[0].description}}</p>
                     </div>
-                    <a href="{{ path('product_see', {'product_slug': products[0].slug }) }}" class="btn btn-primary btnCajaDestacados" role="button">Ver Producto</a>
+                    <a href="{{ path('product_see', {'product_slug': products[0].slug }) }}" class="btn btn-primary " role="button">Ver Producto</a>
                 </div>
                 <!-- ITEM 2 carousel-->
                 <!-- @foreach($datos['novedades'] as $novedad) -->
@@ -45,10 +45,10 @@
                             <div class="col-xs-6 col-sm-4 col-lg-4 vOffset1">
                                 <img class="img-responsive img-center" src="{{asset('bundles/web/img/') }}{{product.imgRoute}}" title="{{product.name}}" alt="{{product.name}}">
                             </div>
-                            <div class="hidden-xs col-sm-4 col-lg-4  descripcionDestacados vOffset3">
+                            <div class="hidden-xs col-sm-4 col-lg-4  font-weight:bold; vOffset3">
                                 <p>{{product.description}}</p>
                             </div>
-                            <a href="{{ path('product_see', {'product_slug': product.slug }) }}" class="btn btn-primary btnCajaDestacados" role="button">Ver Producto</a>
+                            <a href="{{ path('product_see', {'product_slug': product.slug }) }}" class="btn btn-primary " role="button">Ver Producto</a>
                         </div>
                     {% endif %}
                 {% endfor %}
@@ -65,7 +65,7 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-        <div class="footerCajas">
+        <div class="">
         </div>
     </div>
     <!-- @endif -->
@@ -78,8 +78,8 @@
 
     <!-- DIV NOVEDADES -->
     <div class="col-sm-4">
-        <header class="colorMarron myFont myBigFont"> NOVEDADES </header>
-        <div class="militarBody">
+        <header class=""> NOVEDADES </header>
+        <div class="">
             <div id="myCarouselNovedades" class="carousel slide" data-ride="carousel" data-interval="">
                 <!-- Indicators -->
                 <ol class="carousel-indicators NoIndicators">
@@ -95,8 +95,8 @@
                         {% if (product.novelty and counter != 0)  %}
                             <div class="item">
                                 <img class="img-responsive img-center" src="{{asset('bundles/web/img/') }}{{product.imgRoute}}" title="{{product.name}}" alt="{{product.name}}">
-                                <a href="{{ path('product_see', {'product_slug': product.slug }) }}" class="btn btn-primary btnCajas" role="button">Ver Producto</a>
-                                <div class="footerCajas">
+                                <a href="{{ path('product_see', {'product_slug': product.slug }) }}" class="btn btn-primary " role="button">Ver Producto</a>
+                                <div class="">
                                     <p>{{product.name}}</p>
                                 </div>
                             </div>
@@ -105,8 +105,8 @@
 
                             <div class="item active">
                                 <img class=" img-responsive img-center" src="{{asset('bundles/web/img/') }}{{product.imgRoute}}" title="{{product.name}}" alt="{{product.name}}">
-                                <a href="{{ path('product_see', {'product_slug': product.slug }) }}" class="btn btn-primary btnCajas" role="button">Ver Producto</a>
-                                <div class="footerCajas">
+                                <a href="{{ path('product_see', {'product_slug': product.slug }) }}" class="btn btn-primary " role="button">Ver Producto</a>
+                                <div class="">
                                     <p> {{product.name}}</p>
                                 </div>
                             </div>
@@ -128,8 +128,8 @@
     <!-- END DIV NOVEDADES -->
     <div class="col-sm-4">
     {%if is_granted('ROLE_USER') %}
-        <header class="colorMarron myFont myBigFont"> Ofertas </header>
-        <div class="militarBody">
+        <header class=""> Ofertas </header>
+        <div class="">
             <div id="myCarouselOfertas" class="carousel slide" data-ride="carousel" data-interval="">
                 <!-- Indicators -->
                 <ol class="carousel-indicators NoIndicators">
@@ -145,8 +145,8 @@
                         {% if (product.novelty and counter != 0)  %}
                             <div class="item">
                                 <img class="img-responsive img-center" src="{{asset('bundles/web/img/') }}{{product.imgRoute}}" title="{{product.name}}" alt="{{product.name}}">
-                                <a href="{{ path('product_see', {'product_slug': product.slug }) }}" class="btn btn-primary btnCajas" role="button">Ver Producto</a>
-                                <div class="footerCajas">
+                                <a href="{{ path('product_see', {'product_slug': product.slug }) }}" class="btn btn-primary " role="button">Ver Producto</a>
+                                <div class="">
                                     <p>{{product.name}}</p>
                                 </div>
                             </div>
@@ -155,8 +155,8 @@
 
                             <div class="item active">
                                 <img class=" img-responsive img-center" src="{{asset('bundles/web/img/') }}{{product.imgRoute}}" title="{{product.name}}" alt="{{product.name}}">
-                                <a href="{{ path('product_see', {'product_slug': product.slug }) }}" class="btn btn-primary btnCajas" role="button">Ver Producto</a>
-                                <div class="footerCajas">
+                                <a href="{{ path('product_see', {'product_slug': product.slug }) }}" class="btn btn-primary " role="button">Ver Producto</a>
+                                <div class="">
                                     <p> {{product.name}}</p>
                                 </div>
                             </div>
@@ -177,10 +177,10 @@
     {% endif %}
     </div>
     <div class="col-sm-4">
-        <header class="colorMarron myFont myBigFont"> TALLER </header>
-        <div class="militarBody">
+        <header class=""> TALLER </header>
+        <div class="">
             <a href="#"><img class="img-responsive img-center" src="{{asset('bundles/web/img/banco.png')}}" title="Reparaciones"></a>
-            <div class="footerCajas">
+            <div class="">
                 <p></p>
             </div>
         </div>
