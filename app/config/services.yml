@@ -4,6 +4,9 @@ parameters:
 #    parameter_name: value
 
 services:
+    globalCategories:
+        class: Funny\WebBundle\Util\Util
+        arguments: [@doctrine.orm.entity_manager]
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]

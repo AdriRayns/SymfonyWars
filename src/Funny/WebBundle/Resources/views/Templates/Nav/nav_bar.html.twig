@@ -1,3 +1,6 @@
+
+{% set allCategories = globalCategories.getAllCategories %}
+
 <nav class="navbar navbar-inverse" role="navigation">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -9,23 +12,26 @@
     <a class="navbar-brand" href="{{path('web_homepage')}}" title="Inicio">FunnyWars</a>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul style="height:50px;" class="nav navbar-nav" >
+        <ul style="margin:0 200px 0 200px;position:absolute;height:50px;" class="nav navbar-nav" >
             {% include 'WebBundle:Templates:Nav/nav_section_categories.html.twig' %}
-
+        </ul>
             {% if is_granted('ROLE_ADMIN') %}
-                <li style="float:height:50px;margin:0 5px 0 5px;" class ="dropdown">
+            <ul style="position:absolute;right:150px;" class="nav navbar-nav" >
+                <li class ="dropdown">
                     <a href="#">Gestion</a>
                 </li>
             </ul>
             <a href="{{ path('fos_user_security_logout') }}" style="float:right;margin:7px 0 0 0;" class="btn btn-primary" role="button"> Cerrar Sesión </a>
             {% elseif is_granted('ROLE_USER') %}
-                <li style="float:height:50px;margin:0 5px 0 5px;" class ="dropdown">
+            <ul style="position:absolute; right:150px;" class="nav navbar-nav" >
+                <li stclass ="dropdown">
                     <a href="{{path('fos_user_profile_show')}}">Perfil</a>
                 </li>
             </ul>
              <a href="{{ path('fos_user_security_logout') }}" style="float:right;margin:7px 0 0 0;" class="btn btn-primary" role="button"> Cerrar Sesión </a>
             {% else %}
-                <li style="float:height:50px;margin:0 5px 0 5px;" class ="dropdown">
+            <ul style="position:absolute; right:150px;" class="nav navbar-nav" >
+                <li  class ="dropdown">
                     <a href="{{path('fos_user_registration_register')}}">Registro</a>
                 </li>
             </ul>

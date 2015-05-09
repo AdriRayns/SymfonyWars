@@ -1,5 +1,5 @@
-{% set currentPath = app.request.attributes.get('_route') %}
-{% if ( categories is not defined or categories is null) %}
+{% set allCategories = globalCategories.getAllCategories %}
+{% if ( allCategories is not defined or categories is null) %}
     {% if (currentPath == 'fos_user_security_login' or currentPath == 'fos_user_registration_register' or
                             currentPath== 'fos_user_profile_show' or currentPath== 'fos_user_profile_edit') %}
 
@@ -9,7 +9,7 @@
     </li>
     {% endif %}
 {% else %}
-{% for category in categories %} 
+{% for category in allCategories %} 
     {% if category.parent is null%}
     <li style="height:50px;margin:0 5px 0 5px;" class ="dropdown">
         <a  href="#"> {{category.name}} </a>
