@@ -1,0 +1,40 @@
+<nav class="navbar navbar-inverse colorMarron" role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Desplegable</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button> 
+    <a class="navbar-brand" href="{{path('web_homepage')}}" title="Inicio">FunnyWars</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav myFont">
+            {% include 'WebBundle:Templates:Nav/nav_section_categories.html.twig' %}
+
+            {% if is_granted('ROLE_ADMIN') %}
+                <li class ="dropdown">
+                    <a href="#">Gestion</a>
+                </li>
+            </ul>
+            <a href="{{ path('fos_user_security_logout') }}" class="btn btn-primary btnSesion" role="button"> Cerrar Sesión </a>
+            {% elseif is_granted('ROLE_USER') %}
+                <li class ="dropdown">
+                    <a href="{{path('fos_user_profile_show')}}">Perfil</a>
+                </li>
+            </ul>
+             <a href="{{ path('fos_user_security_logout') }}" class="btn btn-primary btnSesion" role="button"> Cerrar Sesión </a>
+            {% else %}
+                <li class ="dropdown">
+                    <a href="{{path('fos_user_registration_register')}}">Registro</a>
+                </li>
+            </ul>
+            <a href="{{ path('fos_user_security_login') }}" class="btn btn-primary btnSesion" role="button"> Iniciar Sesión </a>
+            {% endif %}
+        
+    </div>
+</nav>
+
+
+
+

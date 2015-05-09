@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Funny Wars">
+        <meta name="author" content="Adrián Reynés">
+        <title>Funny Wars</title>
+        {% block stylesheets %} {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <!-- JQuery API -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="{{asset('bundles/web/js/jquery-ui.min.js')}}"></script>
+
+        <script src="{{asset('bundles/web/js/bootstrap.js')}}"></script>
+        <script src="{{asset('bundles/web/js/miJS.js')}}"></script>
+        <script src="{{asset('bundles/web/js/isotope-docs.min.js')}}"></script>
+        <!-- Bootstrap Core CSS -->
+        <link href="{{asset('bundles/web/css/bootstrap.css')}}" rel="stylesheet">
+        <!-- Custom CSS -->
+        <link href="{{asset('bundles/web/css/FunnyStyles.css')}}" rel="stylesheet">
+        
+        <link rel="stylesheet" href="{{asset('bundles/web/js/jquery-ui.min.css')}}">
+    </head>
+    <body>
+        <!-- Template NAV -->
+        {% include 'WebBundle:Templates:Nav/nav_bar.html.twig' %}
+        <!--Sección tagline y búsqueda -->
+        <div class="row" style="width: 95%;">
+            <div class="col-lg-12">
+                <h1 class="tagline"> Profesionales del Airsoft </h1><br>
+            </div>
+        </div>
+        <div class="container">
+
+            {% block body %} 
+            {% endblock %}
+            </div>
+        {% block javascripts %} {% endblock %}
+        <script src="{{asset('bundles/web/js/prueba.js')}}"></script>
+
+    </body>
+</html>

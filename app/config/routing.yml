@@ -1,0 +1,20 @@
+#user:
+#   resource: "@UserBundle/Resources/config/routing.yml"
+#   prefix:   /
+
+#app:
+#    resource: "@AppBundle/Controller/"
+#    type:     annotation
+
+web:
+    resource: "@WebBundle/Resources/config/routing.yml"
+    prefix:   /
+
+product:
+    resource: "@ProductBundle/Resources/config/routing.yml"
+    prefix:   /
+
+# -------- FOS UserBundle routing -------------
+_user_bundle:
+    resource: "@UserBundle/Resources/config/routing.yml"
+
