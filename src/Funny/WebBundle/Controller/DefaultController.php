@@ -10,29 +10,28 @@ class DefaultController extends Controller
 
     public function indexAction()
     {
-        
-
         return $this->render('WebBundle:Templates/Body/Home:body_home.html.twig', array('categories' => $this->getCategories(),
                                                                         'products' => $this->getProductsAll() ));
     }
 
 
     public function searchAction(){
-        $bag = $this->get('request')->request->all();
 
-        //$toSearch = $bag['to_search'];
+        $bag = $this->get('request')->request->all();
+        $toSearch = $bag['stringToSearch'];
         
         /* Realizar busqueda y devolver la plantilla 
         ** search_results con el resultado de productos y categorías
         ** obtenidos 
         */
         $em = $this->getDoctrine()->getManager();
-        $categories = $em->getRepository('ProductBundle:Category')->findAll();
-        
-        $results = $this->getProductsAll();;
+        $repo = $em->getRepository('ProductBundle:Product');
+        $query = $em->createQuery('SELECT Product FROM ProductBundle:Product Product WHERE Product.name LIKE :toSearch ');
+        $query->setParameters(array(':toSearch' => '%'.$toSearch.'%')); 
 
-        return $this->render('WebBundle:Templates:Searchs/search_results.html.twig', array('results' => $results ,
-                                                                                'categories' => $this->getCategories() ));
+        $results = $query->getResult();
+
+        return $this->render('WebBundle:Templates:Searchs/search_results.html.twig', array('results' => $results ));
 
     }
 

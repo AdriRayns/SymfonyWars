@@ -30,6 +30,18 @@
         <div class="row" style="width: 95%;">
             <div class="col-lg-12">
                 <h1 class="tagline"> Profesionales del Airsoft </h1><br>
+
+
+                <form name="search_form" method="POST" action="{{path('web_search_results')}}">
+                    <input name="stringToSearch" tyoe="text" value=""/>
+                    <input type="submit" name="submit_search" class="btn btn-primary"/>
+                </form>
+
+
+
+
+
+
             </div>
         </div>
         <div class="container">
