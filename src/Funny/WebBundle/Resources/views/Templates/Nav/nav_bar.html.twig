@@ -18,7 +18,7 @@
             {% if is_granted('ROLE_ADMIN') %}
             <ul style="position:absolute;right:150px;" class="nav navbar-nav" >
                 <li class ="dropdown">
-                    <a href="#">Gestion</a>
+                    <a href=" {{path('admin')}} ">Gestion</a>
                 </li>
             </ul>
             <a href="{{ path('fos_user_security_logout') }}" style="float:right;margin:7px 0 0 0;" class="btn btn-primary" role="button"> Cerrar Sesión </a>

@@ -70,7 +70,7 @@ class Category
     public function setName($name)
     {
         $this->name = $name;
-
+        $this->setSlug($name);
         return $this;
     }
 
@@ -90,8 +90,13 @@ class Category
      * @param string $slug
      * @return Category
      */
-    public function setSlug($slug)
+    public function setSlug($name)
     {
+        $slug = iconv('UTF-8', 'ASCII//TRANSLIT', $name);
+        $slug = preg_replace("/[^a-zA-Z0-9\/_|+ -]/", '', $slug);
+        $slug = strtolower(trim($slug, '_'));
+        $slug = preg_replace("/[\/_|+ -]+/", '_', $slug);
+
         $this->slug = $slug;
 
         return $this;
@@ -151,5 +156,13 @@ class Category
     public function getChildrens()
     {
         return $this->childrens;
+    }
+
+    public function getExpiresAt(){
+        return $this->expiresAt;
+    }
+
+    public function __toString(){
+        return $this->name;
     }
 }

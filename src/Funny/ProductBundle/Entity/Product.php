@@ -72,7 +72,7 @@ class Product
     /**
      * @var string
      *
-     * @ORM\Column(name="img_route", type="string", length=255)
+     * @ORM\Column(name="img_route", type="string", length=255,  nullable=true)
      */
     private $imgRoute;
 
@@ -157,6 +157,7 @@ class Product
     {
         $this->brand = $brand;
 
+        $this->setSlug($this->name, $brand);
         return $this;
     }
 
@@ -245,9 +246,14 @@ class Product
      * @param string $slug
      * @return Product
      */
-    public function setSlug($slug)
-    {
-        $this->slug = $slug;
+    public function setSlug($name, $brand)
+    {   
+        $nameAndBrand = $name . ' ' . $brand;
+        $slug = iconv('UTF-8', 'ASCII//TRANSLIT', $nameAndBrand);
+        $slug = preg_replace("/[^a-zA-Z0-9\/_|+ -]/", '', $slug);
+        $slug = strtolower(trim($slug, '_'));
+        $slug = preg_replace("/[\/_|+ -]+/", '_', $slug);
+        $this->slug =$slug;
 
         return $this;
     }
@@ -329,5 +335,9 @@ class Product
     public function getHighlight()
     {
         return $this->highlight;
+    }
+
+    public function __toString(){
+        return $this->$slug;
     }
 }

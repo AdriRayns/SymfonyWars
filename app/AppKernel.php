@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new Funny\ProductBundle\ProductBundle(),
             new Funny\WebBundle\WebBundle(),
             new Funny\UserBundle\UserBundle(),
+            new JavierEguiluz\Bundle\EasyAdminBundle\EasyAdminBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
