@@ -2,8 +2,8 @@
 
 {% block body %}
 <div class="row">
-    <div class="col-md-12 militarBody">
-        <header class="colorMarron myFont myBigFont"><p> {{product.name}} </p></header>
+    <div class="col-md-12 ">
+        <header class=""><p> {{product.name}} </p></header>
         <div class="col-lg-4">
             <img src="{{asset('bundles/web/img/') }}{{product.imgRoute}}"  style="width: 350px">
         </div>
@@ -20,7 +20,7 @@
                 <h3><strong>Registrate para obtener descuento de:</strong> {{product.discount }} % <br><br>
             </div>
         {% endif %}
-            <div class="col-lg-4 descripcionDestacados">
+            <div class="col-lg-4">
                 {% if (product.description != "" or product.description == null) %}
                     {{product .description}}
                 {% else %}

@@ -83,3 +83,35 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+easy_admin:
+    entities:
+        Users:
+            class: Funny\UserBundle\Entity\User
+            list:
+                fields: [username, email, roles, lastLogin, locked, enabled]
+            edit:
+                fields: [username, roles, plainPassword, email, locked, enabled]
+            new:
+                fields: [username, roles, plainPassword, email, locked, enabled]
+            show:
+                fields: [username, roles plainPassword, email, lastLogin, enabled ] 
+        Categories:
+            class: Funny\ProductBundle\Entity\Category
+            list:
+                fields: [name, slug, parent, childrens]
+            new:
+                fields: [name, parent]
+            edit:
+                fields: [name, parent]
+        Products:
+            class: Funny\ProductBundle\Entity\Product
+            list:
+                fields: [name, slug, category, novelty, highlight]
+            new:
+                fields: [category, name, brand, price, discount, novelty, highlight ]
+            edit:
+                fields: [category, name, brand, price, discount, novelty, highlight ]
+    
+
+

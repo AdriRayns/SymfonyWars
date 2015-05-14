@@ -1,4 +1,7 @@
-<nav class="navbar navbar-inverse colorMarron" role="navigation">
+
+{% set allCategories = globalCategories.getAllCategories %}
+
+<nav class="navbar navbar-inverse" role="navigation">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
             <span class="sr-only">Desplegable</span>
@@ -9,27 +12,30 @@
     <a class="navbar-brand" href="{{path('web_homepage')}}" title="Inicio">FunnyWars</a>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav myFont">
+        <ul style="margin:0 200px 0 200px;position:absolute;height:50px;" class="nav navbar-nav" >
             {% include 'WebBundle:Templates:Nav/nav_section_categories.html.twig' %}
-
+        </ul>
             {% if is_granted('ROLE_ADMIN') %}
+            <ul style="position:absolute;right:150px;" class="nav navbar-nav" >
                 <li class ="dropdown">
-                    <a href="#">Gestion</a>
+                    <a href=" {{path('admin')}} ">Gestion</a>
                 </li>
             </ul>
-            <a href="{{ path('fos_user_security_logout') }}" class="btn btn-primary btnSesion" role="button"> Cerrar Sesión </a>
+            <a href="{{ path('fos_user_security_logout') }}" style="float:right;margin:7px 0 0 0;" class="btn btn-primary" role="button"> Cerrar Sesión </a>
             {% elseif is_granted('ROLE_USER') %}
-                <li class ="dropdown">
+            <ul style="position:absolute; right:150px;" class="nav navbar-nav" >
+                <li stclass ="dropdown">
                     <a href="{{path('fos_user_profile_show')}}">Perfil</a>
                 </li>
             </ul>
-             <a href="{{ path('fos_user_security_logout') }}" class="btn btn-primary btnSesion" role="button"> Cerrar Sesión </a>
+             <a href="{{ path('fos_user_security_logout') }}" style="float:right;margin:7px 0 0 0;" class="btn btn-primary" role="button"> Cerrar Sesión </a>
             {% else %}
-                <li class ="dropdown">
+            <ul style="position:absolute; right:150px;" class="nav navbar-nav" >
+                <li  class ="dropdown">
                     <a href="{{path('fos_user_registration_register')}}">Registro</a>
                 </li>
             </ul>
-            <a href="{{ path('fos_user_security_login') }}" class="btn btn-primary btnSesion" role="button"> Iniciar Sesión </a>
+            <a href="{{ path('fos_user_security_login') }}" style="float:right;margin:7px 0 0 0;"class="btn btn-primary" role="button"> Iniciar Sesión </a>
             {% endif %}
         
     </div>

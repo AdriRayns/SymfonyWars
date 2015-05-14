@@ -1,16 +1,16 @@
 {% set allCategories = globalCategories.getAllCategories %}
 {% if allCategories is null %}
-    <li class ="dropdown">
+    <li style="height:50px;margin:0 5px 0 5px;" class ="dropdown">
         <a href="#">Realizando un mantenimiento del catalogo</a>
     </li>
 {% else %}
 {% for category in allCategories %} 
     {% if category.parent is null%}
-    <li class ="dropdown">
+    <li style="height:50px;margin:0 5px 0 5px;" class ="dropdown">
         <a  href="#"> {{category.name}} </a>
         <span class="dropdown-toggle glyphicon glyphicon-menu-down" data-toggle="dropdown" ></span>
         {% if category.childrens is not empty%}
-            <ul class="dropdown-menu colorMarron" role="menu">
+            <ul  class="dropdown-menu " role="menu">
             {% for children in category.childrens %}
                     <li><a href="#"> {{ children.name }} </a></li>              
             {% endfor %}
