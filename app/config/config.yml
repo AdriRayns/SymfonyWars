@@ -84,13 +84,6 @@ swiftmailer:
     password:  "%mailer_password%"
     spool:     { type: memory }
 
-#easy_admin:
-#    entities:
-#        - Funny\ProductBundle\Entity\Product
-#        - Funny\ProductBundle\Entity\Category
-#        - Funny\UserBundle\Entity\User
-
-
 easy_admin:
     entities:
         Users:
@@ -119,3 +112,6 @@ easy_admin:
                 fields: [category, name, brand, price, discount, novelty, highlight ]
             edit:
                 fields: [category, name, brand, price, discount, novelty, highlight ]
+    
+
+
