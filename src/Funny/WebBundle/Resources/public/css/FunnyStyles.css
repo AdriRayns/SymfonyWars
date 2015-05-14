@@ -17,9 +17,7 @@
 
 /* --------ELEMENTOS DEL DOM-------- */
 body{
-    background-image: url('../img/bosque.jpg');
-    background-size: cover;
-    background-repeat: none;
+
 }
 footer{
     background-color: #d39a6a;
@@ -37,9 +35,7 @@ footer a:hover{color: #c8d0b2!important; text-decoration: underline;}
     font-family: 'ni7seg'!important;
     color: #FDD1A8!important;
 }
-.dropdown a { /* Necesaria para sobrescribir estilos de dropdown*/
-    color:  #FDD1A8!important;
-}
+
 .myBigFont {
     font-size: 20px;
     padding: 7px;
@@ -109,35 +105,17 @@ footer a:hover{color: #c8d0b2!important; text-decoration: underline;}
 
 /* --------OTRAS CLASES DE UTILIDAD-------- */
 .colorMarron { background: linear-gradient(to bottom, #603813 0%, #a86f39 50%, #603813 100%); }
-.open >a{ background: linear-gradient(to bottom, #603813 0%, #a86f39 50%, #603813 100%); }
-.dropdown a:hover, button:hover, button:focus {
-    background: linear-gradient(to bottom, rgba(96, 56, 19, 0) 0%,#bbd96e 41%,#bbd96e 61%,rgba(96, 56, 19, 0) 100%)!important;
-    color:  #374A08!important;
-}
-span.dropdown-toggle.glyphicon.glyphicon-menu-down:hover {
-     color: #0d890d!important; 
-}
-.dropdown{
-    height: 50px;
-    margin-left: 10px;
-}
 
-.navbar-brand{ 
-    color: #f0f4ee!important;
-    
-    font-style: oblique;
-    font-size: 22px;
-}
+
+
+
+
 
 .navbar-brand:hover{
     font-weight: bold;
     font-size: 26px;
 }
-.row h1{
-    color: #fff;
-    text-decoration: underline;
-    margin: 0 auto;
-}
+
 .btnSesion{ /* Posicionamiento de boton inicio de sesion */
     float: right;
     color: #374a08;
@@ -436,3 +414,8 @@ span.dropdown-toggle.glyphicon.glyphicon-menu-down:hover {
     margin: 0;
     padding: 0;
 }
+
+
+
+
+/* -------- NEWS -------- */
