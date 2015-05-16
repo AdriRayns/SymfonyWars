@@ -3,7 +3,9 @@
 namespace Funny\ProductBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+
 
 class ProductController extends Controller
 {
@@ -37,4 +39,24 @@ class ProductController extends Controller
 
         return $categories;
     }
+
+
+    /**
+     * @Route(path = "/admin/prueba", name = "prueba")
+     * @Security("has_role('ROLE_ADMIN')")
+     */
+    public function pruebaAction()
+    {
+        $id = $this->request->query->get('id');
+        $entity = $this->em->getRepository('Funny\ProductBundle\Entity\Product')->find($id);
+        $entity->setName('laputa');
+        $this->em->flush();
+
+        // redirect to the 'list' view of the given entity
+        return $this->redirectToRoute('admin', array(
+            'view' => 'list',
+            'entity' => $this->request->query->get('entity'),
+        ));
+    }
+
 }

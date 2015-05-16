@@ -9,3 +9,11 @@ product_edit:
 category_see:
     path:   /category/{category_slug}
     defaults: { _controller: ProductBundle:category:see , category_slug: null}
+
+prueba:
+    path: /admin/prueba
+    defaults: { _controller: ProductBundle:Admin:prueba}
+
+#my_edit_function:
+#    path: /admin/edit
+#    defaults: { _controller: ProductBundle:Admin:edit }

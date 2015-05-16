@@ -133,7 +133,7 @@ class Product
     public function setName($name)
     {
         $this->name = $name;
-
+        $this->setSlug($name, $this->getBrand());
         return $this;
     }
 
