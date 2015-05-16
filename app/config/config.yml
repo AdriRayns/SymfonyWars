@@ -109,13 +109,13 @@ easy_admin:
         Products:
             class: Funny\ProductBundle\Entity\Product
             list:
-                actions:
-                    - { name: 'prueba', type: 'route', icon: 'plus-square' }
+                #actions:
+                    #- { name: 'prueba', type: 'route', icon: 'plus-square' }
                 fields: [name, slug, category, novelty, highlight]
             new:
                 fields: [category, name, brand, price, discount, novelty, highlight ]
             edit:
                 fields: [category, name, brand, price, discount, novelty, highlight ]
-    
+
 
 

@@ -14,21 +14,26 @@ class AdminController extends BaseAdminController {
  * @Route("/admin/", name="admin")
  */
     public function indexAction(Request $request) {
+        
         return parent::indexAction($request);
+        /*
+        var_dump($request);
+        */
     }
 
 /**
  * @Route("/admin/", name="admin")
  */
-    public function editAction(){
+    public function createNewUserEntity(){
 
-        echo("hola"));
+        return var_dump('hola');
+
     }
 
 /**
  * @Route(path = "/admin/prueba", name = "prueba")
  */
-    public function pruebaAction() {/?action=list&entity=User
+    public function pruebaAction() {
         $id = $this->get('request')->query->get('id');
         $entity = $this->get('request')->query->get('entity');
         $em = $this->getDoctrine()->getManager();
