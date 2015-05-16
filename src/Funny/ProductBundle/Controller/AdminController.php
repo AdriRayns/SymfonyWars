@@ -22,15 +22,6 @@ class AdminController extends BaseAdminController {
     }
 
 /**
- * @Route("/admin/", name="admin")
- */
-    public function createNewUserEntity(){
-
-        return var_dump('hola');
-
-    }
-
-/**
  * @Route(path = "/admin/prueba", name = "prueba")
  */
     public function pruebaAction() {
