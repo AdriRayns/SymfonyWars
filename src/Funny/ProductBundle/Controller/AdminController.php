@@ -21,6 +21,11 @@ class AdminController extends BaseAdminController {
         */
     }
 
+
+    public function createNewProductsEntity() {
+        return var_dump("hola");
+    }
+
 /**
  * @Route(path = "/admin/prueba", name = "prueba")
  */
