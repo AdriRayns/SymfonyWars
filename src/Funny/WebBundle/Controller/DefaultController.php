@@ -4,6 +4,7 @@ namespace Funny\WebBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends Controller
 {   
@@ -48,6 +49,10 @@ class DefaultController extends Controller
         $allProducts = $em->getRepository('ProductBundle:Product')->findAll();
 
         return $allProducts;
+    }
+    public function getTokenAction() {
+        return new Response($this->container->get('form.csrf_provider')
+                                ->generateCsrfToken('authenticate'));
     }
 
 }

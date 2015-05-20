@@ -417,5 +417,36 @@ footer a:hover{color: #c8d0b2!important; text-decoration: underline;}
 
 
 
-
 /* -------- NEWS -------- */
+
+.rectangulo > i {
+    position: absolute!important;
+    display: inline-block;
+    width: 400px;
+    height: 180px;
+    background-color: #9D9EA0;
+    left: 68%;
+    top: 80px;
+    z-index: 10;
+}
+
+
+.triangulo > i {
+    position: absolute;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    border: 2em solid transparent;
+    margin-top: -2em;
+    border-bottom: 1em solid #9D9EA0;
+    left: 93.5%;
+    top: 66px;
+    z-index: 10;
+}
+
+
+
+
+
+
