@@ -1,0 +1,27 @@
+<script type="text/javascript" >
+    $(function() {
+        $('#nav_user_buttom').click(function(){
+            var visibility= $('.rectangulo > i').css('visibility');
+            if( visibility === 'visible'){
+                $('.rectangulo > i').css('visibility','hidden');
+                $('.triangulo > i').css('visibility','hidden');
+            } else {
+                $('.rectangulo > i').css('visibility','visible');
+                $('.triangulo > i').css('visibility','visible');
+            }
+        });
+
+        $('.rectangulo > i').mouseleave(function(){
+            var visibility= $('.rectangulo > i').css('visibility');
+            if( visibility === 'visible'){
+                $('.rectangulo > i').css('visibility','hidden');
+                $('.triangulo > i').css('visibility','hidden');
+            } else {
+                $('.rectangulo > i').css('visibility','visible');
+                $('.triangulo > i').css('visibility','visible');
+            }
+        });
+
+    });
+    
+</script>

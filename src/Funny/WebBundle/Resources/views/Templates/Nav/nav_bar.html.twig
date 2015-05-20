@@ -35,12 +35,27 @@
                     <a href="{{path('fos_user_registration_register')}}">Registro</a>
                 </li>
             </ul>
-            <a href="{{ path('fos_user_security_login') }}" style="float:right;margin:7px 0 0 0;"class="btn btn-primary" role="button"> Iniciar Sesión </a>
+            <!-- Button con onClick por JS -->
+            <a id="nav_user_buttom"href="#" style="float:right;margin:7px 0 0 0;z-index:11;"class="btn btn-primary" role="button"> Iniciar Sesión </a> 
+            <!-- Figuras CSS y formulario login -->
+            <i class="rectangulo"><i style="visibility:hidden;">
+                <form id="login_form" action="{{ path('fos_user_security_check') }}" method="post" name="form1" style="text-align:center;">
+                    <input type="hidden" name="_csrf_token" value="{% render controller('WebBundle:Default:getToken') %}"/>
+                    <input type="text" id="username" name="_username" autocomplete="on" value="{% if last_username is defined %}{{ last_username }}{% endif %}" placeholder="Username">
+                    <input class="" type="password" id="password" name="_password" placeholder="Contraseña">
+                    <input type="checkbox" id="remember_me" name="_remember_me" />
+                    <label for="remember_me">Recordarme</label>
+                    <button type="submit" class="btn">Iniciar sesión</button>
+                </form>
+            </i></i>
+            <i class="triangulo"><i style="visibility:hidden;"></i></i>
+            
+
             {% endif %}
         
     </div>
 </nav>
-
+{% include 'WebBundle:TemplatesJS:nav_bar_js.html.twig' %}
 
 
 
