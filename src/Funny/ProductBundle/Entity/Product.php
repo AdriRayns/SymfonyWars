@@ -46,7 +46,7 @@ class Product
      *
      * @ORM\Column(name="description", type="text")
      */
-    private $description = "";
+    private $description;
 
     /**
      * @var float
@@ -90,6 +90,11 @@ class Product
      */
     private $highlight;
 
+
+    public function __construct(){
+        $this->description="";
+        $this->imgRoute = "default_notFound.png";
+    }
 
     /**
      * Get id

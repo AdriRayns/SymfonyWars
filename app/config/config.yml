@@ -95,7 +95,7 @@ easy_admin:
             new:
                 fields: [username, roles, plainPassword, email, locked, enabled]
             show:
-                fields: [username, roles, plainPassword, email, lastLogin, enabled ] 
+                fields: [username, roles, plainPassword, email, lastLogin, enabled ]
         Categories:
             class: Funny\ProductBundle\Entity\Category
             list:
@@ -111,11 +111,11 @@ easy_admin:
             list:
                 #actions:
                     #- { name: 'prueba', type: 'route', icon: 'plus-square' }
-                fields: [name, slug, category, novelty, highlight]
+                fields: [name, category, price, discount, novelty, highlight]
             new:
-                fields: [category, name, brand, price, discount, novelty, highlight ]
+                fields: [name, category, brand, price, discount,  description, novelty, highlight ]
             edit:
-                fields: [category, name, brand, price, discount, novelty, highlight ]
+                fields: [category, name, brand, price, discount, description, novelty, highlight ]
 
 
 

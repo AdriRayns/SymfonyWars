@@ -3,14 +3,14 @@
     <!-- Custom CSS -->
     <link href="{{asset('bundles/web/css/FunnyStyles.css')}}" rel="stylesheet">
     <link href="{{asset('bundles/web/css/bootstrap.css')}}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('bundles/easyadmin/stylesheet/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{asset('bundles/web/css/jquery-ui.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('bundles/easyadmin/stylesheet/font-awesome.min.css') }}">
 {% endblock head_stylesheets %}
 {% block body %}
 <body id="{% block body_id %}{% endblock %}" class="{% block body_class %}{% endblock %}">
-    <div id="wrapper" class="container">
+    <div id="wrapper">
         {% block wrapper %}
-        <nav id="header" class="navbar navbar-inverse" role="navigation"
+        <nav class="navbar navbar-inverse" role="navigation" style="height:52px!important;">
             {% block header %}
             <div id="header-contents">
                 <div class="navbar-header">
@@ -24,7 +24,7 @@
                         {% set _site_name_length = easyadmin_config('site_name')|length <= 10 ? 'short'
                             : easyadmin_config('site_name')|length <= 12 ? 'medium' : 'long;'
                         %}
-                        <a href="{{ path('admin') }}" class="navbar-brand">FunnyWars</a>
+                        <a href="{{ path('web_homepage') }}" class="navbar-brand">FunnyWars</a>
                         {% endblock header_logo %}
                     </div>
                     {% endblock navbar_header %}
@@ -32,7 +32,7 @@
 
                 <div class="collapse navbar-collapse" id="header-nav">
                     {% block header_menu %}
-                        <ul id="header-menu" class="nav navbar-nav">
+                        <ul id="header-menu" class="nav navbar-nav" >
                             {% block navigation_items %}
                                 {% for item in easyadmin_config('entities') %}
                                     <li class="{{ item.name|lower == app.request.get('entity')|lower ? 'active' : '' }}">
@@ -49,9 +49,9 @@
                 <div id="header-footer" class="navbar-right">
                     {% block header_footer %}
                         {% if app.user %}
-                            <div id="header-security">
+                            <div id="header-security" style="margin-top:-20px;margin-right:20px;color:white;">
                                 <p>
-                                    <small><i class="fa fa-lock"></i> <span>{{ 'header.logged_in_as'|trans }}</span></small>
+                                    <small><i></i> <span>Loged as: </span></small>
                                     {{ app.user.username|default('Unnamed User') }}
                                 </p>
                             </div>
@@ -92,6 +92,7 @@
         <script src="{{ asset('bundles/easyadmin/javascript/jquery.min.js') }}"></script>
         <script src="{{ asset('bundles/easyadmin/javascript/bootstrap.min.js') }}"></script>
         <script src="{{ asset('bundles/easyadmin/javascript/admin.js') }}"></script>
+        <script src="{{ asset('bundles/easyadmin/javascript/jquery-flexmenu.min.js') }}"></script>
     {% endblock body_javascript %}
 
     {% for js_asset in easyadmin_config('design.assets.js') %}

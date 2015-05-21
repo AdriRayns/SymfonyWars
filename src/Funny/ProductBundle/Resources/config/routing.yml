@@ -14,6 +14,6 @@ category_see:
 #    path: /admin/prueba
 #    defaults: { _controller: ProductBundle:Admin:prueba}
 
-MyAdmin:
-    path: /admin/
-    defaults: { _controller: ProductBundle:Admin:index }
+#MyAdmin:
+#   path: /admin/
+#   defaults: { _controller: ProductBundle:Admin:index }
