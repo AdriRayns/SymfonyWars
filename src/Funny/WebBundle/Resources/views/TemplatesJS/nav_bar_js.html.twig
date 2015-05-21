@@ -23,6 +23,18 @@
             }
         });
 
+         $('#dropdown_gestion > a').mouseover(function(){
+            console.log("hola");
+            $(this).parent().addClass('open');
+         });
+         $('#dropdown_gestion > ul ').mouseleave(function(){
+            console.log("hola");
+            $('#dropdown_gestion').removeClass('open');
+
+         });
+
+
+
     });
     
 </script>

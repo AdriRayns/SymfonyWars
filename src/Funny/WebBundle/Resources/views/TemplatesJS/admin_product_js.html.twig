@@ -1,0 +1,13 @@
+<script type="text/javascript">
+    $(function(){ 
+        var categories_otions = $('option');
+        $('.hidden_CategoryParent').each(function(){
+            var parent = $(this);
+            categories_otions.each(function(){
+                if(parent.val() == $(this).text()){
+                    $(this).remove();
+                }
+            });
+        });
+    });
+</script>

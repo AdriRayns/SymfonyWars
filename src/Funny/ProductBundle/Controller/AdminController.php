@@ -22,12 +22,33 @@ class AdminController extends BaseAdminController {
     }
 
 
-    public function createNewProductsEntity() {
-        return var_dump("hola");
+
+    
+
+
+
+
+
+
+/**
+ * @Route("/admin", name="easy_admin_bundle")
+ */
+    public function deleteFromListAction() {
+        $entity = $this->request->query->get('entity');
+        $id = $this->request->query->get('id');
+        $entityObj = $this->em->getRepository('ProductBundle:'.$entity)->find($id);
+        $this->em->remove($entityObj);
+        $this->em->flush();
+
+        // redirect to the 'list' view of the given entity
+        return $this->redirectToRoute('admin', array(
+            'view' => 'list',
+            'entity' => $entity,
+        ));
     }
 
 /**
- * @Route(path = "/admin/prueba", name = "prueba")
+ * @Route(path = "/admin/", name = "easy_admin_bundle")
  */
     public function pruebaAction() {
         $id = $this->get('request')->query->get('id');

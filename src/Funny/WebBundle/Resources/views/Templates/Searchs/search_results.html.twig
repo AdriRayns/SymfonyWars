@@ -20,6 +20,10 @@
             {% for product in results %}
                 <div class="col-md-4 elemento">
                     <div class="panel panel-default">
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <a href="{{ path('easy_admin_bundle' ,{'entity':'Product', 'view':'list', 'action':'edit', 'id': product.id } ) }}" role="button" class="btn btn-warning" style="margin:1%;position:relative;float:right">Modificar</a>
+                    {% endif %}
+                        {#<a><i style="height:50px; width:50px; "class="glyphicon-edit"></i></a>#}
                         <header class="text-center">
                             <h3 class="nombreAsc nombreDesc">{{product.name}}</h3>
                         </header>

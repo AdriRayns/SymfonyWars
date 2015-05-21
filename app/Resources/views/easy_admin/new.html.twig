@@ -27,4 +27,10 @@
             $('#new-form').areYouSure({ 'message': 'You haven\'t saved the changes made on this form.' });
         });
     </script>
+    
+    {% if _entity_config.name == 'Product' %}
+        {% include 'WebBundle:TemplatesJS:admin_product_js.html.twig' %}
+    {% else %}
+        {% include 'WebBundle:TemplatesJS:admin_category_js.html.twig' %}
+    {% endif %}
 {% endblock %}

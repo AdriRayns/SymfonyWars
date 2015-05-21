@@ -86,7 +86,7 @@ swiftmailer:
 
 easy_admin:
     entities:
-        Users:
+        User:
             class: Funny\UserBundle\Entity\User
             list:
                 fields: [username, email, roles, lastLogin, locked, enabled]
@@ -96,7 +96,7 @@ easy_admin:
                 fields: [username, roles, plainPassword, email, locked, enabled]
             show:
                 fields: [username, roles, plainPassword, email, lastLogin, enabled ]
-        Categories:
+        Category:
             class: Funny\ProductBundle\Entity\Category
             list:
                 fields: [name, slug, parent, childrens]
@@ -106,10 +106,11 @@ easy_admin:
                 fields: [name, parent]
             show:
                 actions: [show]
-        Products:
+        Product:
             class: Funny\ProductBundle\Entity\Product
             list:
-                #actions:
+                actions:
+                    - { name: 'deleteFromList', type: 'method', label: 'Delete', icon: 'trash' }
                     #- { name: 'prueba', type: 'route', icon: 'plus-square' }
                 fields: [name, category, price, discount, novelty, highlight]
             new:

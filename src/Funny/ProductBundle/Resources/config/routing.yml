@@ -10,6 +10,13 @@ category_see:
     path:   /category/{category_slug}
     defaults: { _controller: ProductBundle:category:see , category_slug: null}
 
+easy_admin_bundle:
+    resource: @ProductBundle/Controller/AdminController.php
+    type:     annotation
+    prefix:   /admin
+
+
+
 #prueba:
 #    path: /admin/prueba
 #    defaults: { _controller: ProductBundle:Admin:prueba}
@@ -17,3 +24,9 @@ category_see:
 #MyAdmin:
 #   path: /admin/
 #   defaults: { _controller: ProductBundle:Admin:index }
+
+
+#MyAdmin:
+#    resource: @ProductBundle/Controller/AdminController.php
+#    type:     annotation
+#    prefix:   /admin

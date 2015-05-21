@@ -25,7 +25,6 @@
                 attr: { id: 'delete-form', style: 'display: none' }
             })
         }}
-
         <div id="modal-delete" class="modal fade">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -70,4 +69,9 @@
             });
         });
     </script>
+    {% if _entity_config.name == 'Product' %}
+        {% include 'WebBundle:TemplatesJS:admin_product_js.html.twig' %}
+    {% else %}
+        {% include 'WebBundle:TemplatesJS:admin_category_js.html.twig' %}
+    {% endif %}
 {% endblock %}

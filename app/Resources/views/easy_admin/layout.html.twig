@@ -7,12 +7,21 @@
     <link rel="stylesheet" href="{{ asset('bundles/easyadmin/stylesheet/font-awesome.min.css') }}">
 {% endblock head_stylesheets %}
 {% block body %}
+{% set allCategories = globalCategories.getAllCategories %}
+{% for category in allCategories %}
+    {% if category.parent is null %}
+        <input type="hidden" class="hidden_CategoryParent" value="{{category.name}}">
+    {% else %}
+        <input type="hidden" class="hidden_CategoryChildren" value="{{category.name}}">
+    {% endif %}
+{% endfor %}
 <body id="{% block body_id %}{% endblock %}" class="{% block body_class %}{% endblock %}">
     <div id="wrapper">
         {% block wrapper %}
         <nav class="navbar navbar-inverse" role="navigation" style="height:52px!important;">
             {% block header %}
             <div id="header-contents">
+            <a href="{{ path('fos_user_security_logout') }}" style="float:right;margin:7px 0 0 0;" class="btn btn-primary" role="button"> Cerrar Sesión </a>
                 <div class="navbar-header">
                     {% block navbar_header %}
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-nav">
@@ -50,10 +59,7 @@
                     {% block header_footer %}
                         {% if app.user %}
                             <div id="header-security" style="margin-top:-20px;margin-right:20px;color:white;">
-                                <p>
-                                    <small><i></i> <span>Loged as: </span></small>
-                                    {{ app.user.username|default('Unnamed User') }}
-                                </p>
+                               
                             </div>
                         {% endif %}
                     {% endblock header_footer %}

@@ -16,12 +16,22 @@
             {% include 'WebBundle:Templates:Nav/nav_section_categories.html.twig' %}
         </ul>
             {% if is_granted('ROLE_ADMIN') %}
+
+
             <ul style="position:absolute;right:150px;" class="nav navbar-nav" >
-                <li class ="dropdown">
+                <li id ="dropdown_gestion"class ="dropdown" style="height:50px;">
                     <a href=" {{path('admin')}} ">Gestion</a>
+                    <ul id="ul_gestion" class="dropdown-menu " role="menu">
+                        <li><a href="{{ path('easy_admin_bundle',{'entity':'Product'})}}"> Productos </a></li>
+                        <li><a href="{{ path('easy_admin_bundle',{'entity':'Category'})}}"> Categorias </a></li>
+                        <li><a href="{{ path('easy_admin_bundle',{'entity':'User'})}}"> Usuarios </a></li>
+                    </ul>
                 </li>
             </ul>
             <a href="{{ path('fos_user_security_logout') }}" style="float:right;margin:7px 0 0 0;" class="btn btn-primary" role="button"> Cerrar Sesión </a>
+            
+
+
             {% elseif is_granted('ROLE_USER') %}
             <ul style="position:absolute; right:150px;" class="nav navbar-nav" >
                 <li stclass ="dropdown">
