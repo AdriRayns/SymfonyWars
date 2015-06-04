@@ -23,11 +23,10 @@
                     {% if is_granted('ROLE_ADMIN') %}
                         <a href="{{ path('easy_admin_bundle' ,{'entity':'Product', 'view':'list', 'action':'edit', 'id': product.id } ) }}" role="button" class="btn btn-warning" style="margin:1%;position:relative;float:right">Modificar</a>
                     {% endif %}
-                        {#<a><i style="height:50px; width:50px; "class="glyphicon-edit"></i></a>#}
                         <header class="text-center">
                             <h3 class="nombreAsc nombreDesc">{{product.name}}</h3>
                         </header>
-                        <div class="ccm-core-commerce-add-to-cart">
+                        <div class="ccm-core-commerce-add-to-cart" >
                             <ul class="list-group">
                                 <li class="list-group-item"> 
                                     <img class="img-responsive img-center" src="{{asset('bundles/web/img/')}}{{product.imgRoute}}">
@@ -44,15 +43,16 @@
                                 </li>
 
                                 <li class="list-group-item"> 
+                                    {{ twitterButton() }}
+                                    {{ facebookButton( {'url':path('product_see',{'product_slug':product.slug})  }) }}
                                 </li>
                             </ul>
                         </div>
                     </div>
+
                 </div>
             {% endfor %}
         </div>
     </div>
 </div>
-
-
 {% endblock %}

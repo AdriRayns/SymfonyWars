@@ -119,4 +119,31 @@ easy_admin:
                 fields: [category, name, brand, price, discount, description, novelty, highlight ]
 
 
-
+nomaya_social:
+    buttons:
+        facebook:
+            url:            "http://www.facebook.com/rayns.mindproblemzcrew"
+            locale:         "fr_FR"
+            send:           false
+            width:          300
+            showFaces:      false
+            layout:         "button_count"
+        twitter:
+            url:            null
+            #locale:         "fr"
+            message:        "Je veux partager ça avec vous"
+            text:           "Tweet"
+            via:            "L'Equipe cartedevisitevirtuelle.fr"
+            tag:            "ttot"
+        googleplus:
+            url:            "https://plus.google.com/u/0/112511943308189906590/posts"
+            #locale :        "fr"
+            size :          "medium"
+            annotation :    "bubble"
+            width :         300
+        pinterest:
+            url:            null
+    links: 
+        facebook:           "http://www.facebook.com/rayns.mindproblemzcrew"
+        googleplus:         "https://plus.google.com/u/0/112511943308189906590/posts"
+    theme:                  'default' # optional

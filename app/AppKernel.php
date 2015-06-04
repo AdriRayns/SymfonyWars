@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new Funny\WebBundle\WebBundle(),
             new Funny\UserBundle\UserBundle(),
             new JavierEguiluz\Bundle\EasyAdminBundle\EasyAdminBundle(),
+            new Nomaya\SocialBundle\NomayaSocialBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

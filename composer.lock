@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2395b4f14fa6e0fc2b8d5d0e5c70f44c",
+    "hash": "26fcc116a8a4679b2a18a357bb8d3ca6",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -822,16 +822,16 @@
         },
         {
             "name": "javiereguiluz/easyadmin-bundle",
-            "version": "v1.5.0",
+            "version": "v1.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/javiereguiluz/EasyAdminBundle.git",
-                "reference": "c19f8332c774e6e34925fa66c0c93a2717e89065"
+                "reference": "15a0fcb1af72d32ecaac0a4d1501c386c72c07c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/javiereguiluz/EasyAdminBundle/zipball/c19f8332c774e6e34925fa66c0c93a2717e89065",
-                "reference": "c19f8332c774e6e34925fa66c0c93a2717e89065",
+                "url": "https://api.github.com/repos/javiereguiluz/EasyAdminBundle/zipball/15a0fcb1af72d32ecaac0a4d1501c386c72c07c5",
+                "reference": "15a0fcb1af72d32ecaac0a4d1501c386c72c07c5",
                 "shasum": ""
             },
             "require": {
@@ -847,8 +847,7 @@
             },
             "require-dev": {
                 "doctrine/doctrine-fixtures-bundle": "~2.2",
-                "phpunit/phpunit": "~4.4",
-                "satooshi/php-coveralls": "~0.6"
+                "phpunit/phpunit": "~4.4"
             },
             "type": "symfony-bundle",
             "autoload": {
@@ -877,7 +876,7 @@
                 "backend",
                 "generator"
             ],
-            "time": "2015-05-17 17:11:00"
+            "time": "2015-05-21 15:05:32"
         },
         {
             "name": "jdorn/sql-formatter",
@@ -1075,6 +1074,69 @@
                 "psr-3"
             ],
             "time": "2015-03-09 09:58:04"
+        },
+        {
+            "name": "nomaya/social-bundle",
+            "version": "dev-master",
+            "target-dir": "Nomaya/SocialBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nomayann/NomayaSocialButtonsBundle.git",
+                "reference": "4a3d28aceebed00bed8ab3f4c680d0372b499273"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nomayann/NomayaSocialButtonsBundle/zipball/4a3d28aceebed00bed8ab3f4c680d0372b499273",
+                "reference": "4a3d28aceebed00bed8ab3f4c680d0372b499273",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "twig/twig": "*"
+            },
+            "require-dev": {
+                "matthiasnoback/symfony-config-test": "0.*",
+                "symfony/framework-bundle": ">=2.1"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Nomaya\\SocialBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Yann Chauvel",
+                    "email": "yann@nomaya.net",
+                    "homepage": "http://www.nomaya.net/"
+                }
+            ],
+            "description": "A bundle to easily add facebook, twitter, G+, Linkedin buttons to your templates",
+            "homepage": "http://github.com/nomayann/NomayaSocialButtonsBundle",
+            "keywords": [
+                "Symfony2",
+                "bundle",
+                "buttons",
+                "facebook",
+                "google plus",
+                "like",
+                "linkedin",
+                "share",
+                "social",
+                "symfony",
+                "symfony2bundle",
+                "twitter"
+            ],
+            "time": "2014-09-18 15:13:20"
         },
         {
             "name": "pagerfanta/pagerfanta",
@@ -1298,16 +1360,16 @@
         },
         {
             "name": "sensiolabs/security-checker",
-            "version": "v2.0.2",
+            "version": "v2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/security-checker.git",
-                "reference": "cecb1397087dc9c733796eda6e9d121336039cdc"
+                "reference": "cde03c48d490d805ef1349e5108f8b3085981ead"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/cecb1397087dc9c733796eda6e9d121336039cdc",
-                "reference": "cecb1397087dc9c733796eda6e9d121336039cdc",
+                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/cde03c48d490d805ef1349e5108f8b3085981ead",
+                "reference": "cde03c48d490d805ef1349e5108f8b3085981ead",
                 "shasum": ""
             },
             "require": {
@@ -1339,7 +1401,7 @@
                 }
             ],
             "description": "A security checker for your composer.lock",
-            "time": "2015-04-21 07:52:05"
+            "time": "2015-05-22 14:21:04"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -3987,7 +4049,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "friendsofsymfony/user-bundle": 20
+        "friendsofsymfony/user-bundle": 20,
+        "nomaya/social-bundle": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

@@ -9,8 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 class DefaultController extends Controller
 {   
 
-    public function indexAction()
-    {
+    public function indexAction() {
         return $this->render('WebBundle:Templates/Body/Home:body_home.html.twig', array('categories' => $this->getCategories(),
                                                                         'products' => $this->getProductsAll() ));
     }
