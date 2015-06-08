@@ -9,15 +9,20 @@
 </div>
 <div class="row">
     <div class="col-md-12 ">
-        <header class=""><p>Catalogo</p></header>
-        <div class="col-md-12">
+        <header class="text-center"><h3>Resultados</h3></header>
             <h2>Categorías:</h2></br>
-        </div>
+            {% for category in category_results %}
+                {% if category.parent is not null %}
+                <div class="col-md-4" style="margin: 5px 0px">
+                    <h4><a href=" {{path('category_see', {'category_slug': category.slug} )}} ">{{ category.name }}</a></h4>
+                </div> 
+                {% endif %}
+            {% endfor %}
         <div class="col-md-12">
             <h2>Productos:</h2></br>
         </div>
         <div id="elementos" class="col-md-12" style="position:relative; height:650px;">
-            {% for product in results %}
+            {% for product in product_results %}
                 <div class="col-md-4 elemento">
                     <div class="panel panel-default">
                     {% if is_granted('ROLE_ADMIN') %}
@@ -43,7 +48,7 @@
                                 </li>
 
                                 <li class="list-group-item"> 
-                                    {{ twitterButton() }}
+                                    {{ twitterButton( { 'message':'message', 'url':"http://pfg.com/product/" ~ product.slug})}}
                                     {{ facebookButton( {'url':path('product_see',{'product_slug':product.slug})  }) }}
                                 </li>
                             </ul>

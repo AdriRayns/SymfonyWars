@@ -25,15 +25,21 @@ class DefaultController extends Controller
         ** obtenidos 
         */
         $em = $this->getDoctrine()->getManager();
-        $repo = $em->getRepository('ProductBundle:Product');
-        $query = $em->createQuery('SELECT Product FROM ProductBundle:Product Product WHERE Product.name LIKE :toSearch ');
-        $query->setParameters(array(':toSearch' => '%'.$toSearch.'%')); 
 
-        $results = $query->getResult();
+        $product_query = $em->createQuery('SELECT Product FROM ProductBundle:Product Product WHERE Product.name LIKE :toSearch ');
+        $product_query->setParameters(array(':toSearch' => '%'.$toSearch.'%')); 
+        $product_results = $product_query->getResult();
 
-        return $this->render('WebBundle:Templates:Searchs/search_results.html.twig', array('results' => $results ));
+        $category_query = $em->createQuery('SELECT Category FROM ProductBundle:Category Category WHERE Category.name LIKE :toSearch ');
+        $category_query->setParameters(array(':toSearch' => '%'.$toSearch.'%')); 
+        $category_results = $category_query->getResult();
+
+        return $this->render('WebBundle:Templates:Searchs/search_results.html.twig', array('product_results' => $product_results,
+                                                                                            'category_results' =>$category_results));
 
     }
+
+
 
 
     public function getCategories(){
