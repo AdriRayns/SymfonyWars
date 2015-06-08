@@ -1,0 +1,36 @@
+{% trans_default_domain "EasyAdminBundle" %}
+{% form_theme form with easyadmin_config('design.form_theme') %}
+
+{% set _entity_config = easyadmin_entity(app.request.query.get('entity')) %}
+{% set _trans_parameters = { '%entity_name%': _entity_config.name|trans, '%entity_label%': _entity_config.label|trans } %}
+
+{% extends _entity_config.templates.layout %}
+
+{% block body_class 'admin new ' ~ _entity_config.name|lower %}
+
+{% block content_title %}
+    {{ _entity_config.new.title|default('new.page_title')|trans(_trans_parameters) }}
+{% endblock %}
+
+{% block main %}
+    {% block entity_form %}
+        {{ include(_entity_config.templates.form, { view: 'new' }) }}
+    {% endblock entity_form %}
+{% endblock %}
+
+{% block body_javascript %}
+    {{ parent() }}
+
+    <script src="{{ asset('bundles/easyadmin/javascript/jquery.are-you-sure.min.js') }}"></script>
+    <script type="text/javascript">
+        $(function() {
+            $('#new-form').areYouSure({ 'message': 'You haven\'t saved the changes made on this form.' });
+        });
+    </script>
+    
+    {% if _entity_config.name == 'Product' %}
+        {% include 'WebBundle:TemplatesJS:admin_product_js.html.twig' %}
+    {% else %}
+        {% include 'WebBundle:TemplatesJS:admin_category_js.html.twig' %}
+    {% endif %}
+{% endblock %}

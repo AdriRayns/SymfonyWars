@@ -1,0 +1,32 @@
+{% extends 'baseFunny.html.twig' %}
+
+{% block body %}
+<div class="row">
+    <div class="col-md-12 militarBody">
+        <header class="colorMarron myFont myBigFont"><p> {{product.name}} </p></header>
+        <div class="col-lg-4">
+            <img src="{{asset('bundles/web/img/') }}{{product.imgRoute}}"  style="width: 350px">
+        </div>
+        {% if is_granted('ROLE_USER') %}
+            <div class="col-lg-3">
+                <h3> <strong>Precio:</strong> <strike>{{product.price }} €</strike></h3>
+                <h3><strong>Descuento:</strong> {{product.discount }} % <br><br>
+                <span class="label label-info">Precio Usuario: <strong> {{product.price * ((100-product.discount)/100)}} €</strong></span>
+                </h3>
+            </div>
+        {% else %}
+            <div class="col-lg-3">
+                <h3> <strong>Precio:</strong> {{product.price }} €</h3>
+                <h3><strong>Registrate para obtener descuento de:</strong> {{product.discount }} % <br><br>
+            </div>
+        {% endif %}
+            <div class="col-lg-4 descripcionDestacados">
+                {% if (product.description != "" or product.description == null) %}
+                    {{product .description}}
+                {% else %}
+                    No hay descripción para este producto
+                {% endif %}
+            </div>
+    </div>
+</div>
+{% endblock %}

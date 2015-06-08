@@ -1,0 +1,8 @@
+<form name="search_form" method="POST" action="{{path('web_search_results')}}">
+    {% if error %}
+    <div>{{ error.message }}</div>
+    {% endif %}
+    <input id="stringToSearch" type="text" name="stringToSearch"
+    value="" />
+    <input type="submit" name="submit_search" class="btn btn-primary"/>
+</form>

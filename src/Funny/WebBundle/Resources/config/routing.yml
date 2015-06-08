@@ -1,0 +1,7 @@
+web_homepage:
+    path:   /
+    defaults: { _controller: WebBundle:Default:index }
+
+web_search_results:
+    path:   /searchresults
+    defaults: { _controller: WebBundle:Default:search }

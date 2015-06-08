@@ -1,0 +1,38 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-lg-12 militarBody">
+        <header class="colorMarron myFont myBigFont"><p>Modificar perfil: {{ app.user.username }}</p></header>
+
+        <form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit">
+            {{ form_widget(form) }}
+            <div>
+                <input style="font-weight:bold; float:left;margin:1%;" class="btn label-success" type="submit" value="{{ 'profile.edit.submit'|trans }}" />
+
+                <a style="font-weight:bold; margin:1%;" href="{{path('fos_user_change_password')}}" class="botonBorrar btn label-info" data-toggle="modal">Cambiar Contraseña</a>
+                <!--Link open dialog -->
+                <a style="font-weight:bold; float:right;margin:1%;" href="#myModal" class="botonBorrar btn label-danger" data-toggle="modal">Borrar usuario</a>
+            </div>
+        </form>
+        <!--Confirm delete user dialog -->
+        <div id="myModal" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">¿Deseas darte de baja en FunnyWars?</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Si te dás de baja en FunnyWars no podrás beneficiarte de los descuentos de usuario y se borrarán todos tus datos de nuestra base de datos.</br></br>
+                           Serás redireccionado a HOME </p>
+                        <p class="text-warning"><small>Confirma la acción</small></p>
+                    </div>
+                    <div class="modal-footer">
+                        <a type="button" class="btn label-success" data-dismiss="modal">Cancelar</a>
+                         <a href="{{path('fos_user_delete')}}" class="botonBorrar btn label-danger" style="font-weight: bold; font-size: 16px;">Borrar Usuario</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End dialog -->
+    </div>
+</div>

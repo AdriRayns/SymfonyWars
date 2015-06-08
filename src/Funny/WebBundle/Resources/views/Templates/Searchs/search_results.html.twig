@@ -1,0 +1,58 @@
+{% extends 'baseFunny.html.twig' %}
+
+{% block body %}
+<div class="sort hidden">
+    <button class="btn-" data-sort-by="nombreAsc"> Nombre Ascendente</button>
+    <button class="btn-danger" data-sort-by="nombreDes"> Nombre Descendente</button>
+    <button class="btn-warning" data-sort-by="precioAsc"> Precio Ascendente</button>
+    <button class="btn-warning" data-sort-by="precioDes"> Precio Descendente</button>
+</div>
+<div class="row">
+    <div class="col-md-12 cuerpoCatalogo">
+        <header class="colorMarron myFont myBigFont"><p>Catalogo</p></header>
+        <div class="col-md-12">
+            <h2>Categorías:</h2></br>
+        </div>
+        <div class="col-md-12">
+            <h2>Productos:</h2></br>
+        </div>
+        <div id="elementos" class="col-md-12" style="position:relative; height:650px;">
+            {% for product in results %}
+                <div class="col-md-4 elemento">
+                    <div class="panel panel-default">
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <a href="{{ path('easy_admin_bundle' ,{'entity':'Product', 'view':'list', 'action':'edit', 'id': product.id } ) }}" role="button" class="btn btn-warning" style="margin:1%;position:relative;float:right">Modificar</a>
+                    {% endif %}
+                        <header class="text-center">
+                            <h3 class="nombreAsc nombreDesc">{{product.name}}</h3>
+                        </header>
+                        <div class="ccm-core-commerce-add-to-cart" >
+                            <ul class="list-group">
+                                <li class="list-group-item"> 
+                                    <img class="img-responsive img-center" src="{{asset('bundles/web/img/')}}{{product.imgRoute}}">
+                                </li>
+                                <li class="list-group-item"> 
+                                    <h4>Marca: {{product.brand}}</h4>
+                                </li>
+                                <li class="list-group-item"> 
+                                    {% if (is_granted('ROLE_USER') and product.discount != 0 ) %}
+                                        <h4>Precio Usuario: <strong> {{product.price * ((100-product.discount)/100)  }} €</strong></h4>
+                                    {% else %}
+                                        <h4>Precio: <strong> {{product.price}}</strong>
+                                    {% endif %}
+                                </li>
+
+                                <li class="list-group-item"> 
+                                    {{ twitterButton() }}
+                                    {{ facebookButton( {'url':path('product_see',{'product_slug':product.slug})  }) }}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

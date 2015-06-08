@@ -1,0 +1,453 @@
+/* --------ESTILO DE FUENTE A�ADIDO--------*/
+@font-face {
+    font-family: 'ni7seg';
+    src: url('fonts/ni7seg.eot');
+    src: local('ni7seg'), url('../fonts/ni7seg.woff') format('woff'), url('fonts/ni7seg.ttf') format('truetype');
+}
+.myFont {
+    font-family: 'ni7seg'!important;
+    color: #FDD1A8!important;
+}
+.myBigFont {
+    font-size: 20px;
+    padding: 7px;
+    text-align: center;
+}
+
+
+/* --------ELEMENTOS DEL DOM-------- */
+body{
+
+}
+footer{
+    background-color: #d39a6a;
+    text-align: center;
+    margin-left: 5.5%;
+    margin-right: 5.5%;
+}
+footer li{ text-decoration: none!important; }
+footer a{color: #2c3908!important; text-decoration: underline;}
+footer a:hover{color: #c8d0b2!important; text-decoration: underline;}
+
+
+/* --------TEXTOS-------- */
+.myFont {
+    font-family: 'ni7seg'!important;
+    color: #FDD1A8!important;
+}
+
+.myBigFont {
+    font-size: 20px;
+    padding: 7px;
+    text-align: center;
+}
+
+
+.descripcionDestacados {
+    font-size: 26px;
+    margin-top: 5%;
+    font-family: sans-serif;
+    font-weight: bold!important;
+    text-align: center;
+    color: #84a039;
+}
+
+
+
+.nombreDestacados p{
+    position: absolute;
+    top: 35%;
+    left: 32%;
+    text-align: center;
+    font-family: sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    color: #FDD1A8;
+}
+
+
+
+/*-------- CAROUSEL --------*/
+.indicators{ bottom: -35px; }
+.carousel-indicators .active{
+    background-color: #596a59;
+}
+.NoIndicators{ display: none; }
+.caroulsel-smaller-controls{ width: 8%; }
+.carousel-controls-color{ color: #0d890d; }
+
+/* --------VERTICAL OFFSET CLASES-------- */
+.vOffset1 { margin-top: 1%; }
+.vOffset2 { margin-top: 2%; }
+.vOffset3 { margin-top: 3%; }
+
+/* --------CAJAS MILITARES-------- */
+.militarBody{
+    background: url(../img/fondo_arena.png);
+    background-size: cover;
+    background-repeat: none;
+    padding: 0;
+    margin-bottom: 10px;
+}
+.footerCajas{
+    height: 30px;
+    padding: 5px;
+    background: linear-gradient(to bottom, #67841c 0%,#d2d6c7 50%,#6a8621 100%);
+}
+.footerCajas > p {
+    text-align: center;
+    font-size: 17px;
+    font-family: sans-serif;
+    font-weight: bold!important;
+    color: #374a08;
+}
+
+
+/* --------OTRAS CLASES DE UTILIDAD-------- */
+.colorMarron { background: linear-gradient(to bottom, #603813 0%, #a86f39 50%, #603813 100%); }
+
+
+
+
+
+
+.navbar-brand:hover{
+    font-weight: bold;
+    font-size: 26px;
+}
+
+.btnSesion{ /* Posicionamiento de boton inicio de sesion */
+    float: right;
+    color: #374a08;
+    font-weight: bold;
+    margin-top: 0.7%;
+    background: linear-gradient(to bottom, #6a8621 0%,#d2d6c7 50%,#6a8621 100%);
+}
+.btnSesion:hover{
+    background: linear-gradient(to bottom, #324307 0%,#d2d6c7 50%,#324307 100%);
+}
+.btnBuscar{ /* Posicionamiento de boton inicio de sesion */
+    font-weight: bold;
+    background: linear-gradient(to bottom, #6a8621 0%,#4b2c0d 50%,#6a8621 100%);
+}
+.btnBuscar:hover{
+    background: linear-gradient(to bottom, #324307 0%,#d2d6c7 50%,#324307 100%)!important;
+}
+.btnCajas{ /* Posicionamiento de boton inicio de sesion */
+    position: absolute;
+    z-index: 1;
+    border: 0;
+    background: rgba(132, 160, 57, 0.47);
+    bottom: 33px;
+    right: 40px;
+}
+.btnCajas:hover, .btnCajas:focus{
+    background: #84a039;
+}
+.btnProductos{ /* Posicionamiento de boton inicio de sesion */
+    position: absolute;
+    z-index: 1;
+    border: 0;
+    background: rgba(132, 160, 57,1);
+    bottom: 45px;
+    right: 40px;
+}
+.btnProductos:hover, btnProductos:focus{
+    color: black;
+}
+.btnCajaDestacados{ /* Posicionamiento de boton inicio de sesion */
+    position: relative;
+    float: right;
+    right:7%;
+    margin-top: 0%;
+    z-index: 10;
+    border: 0;
+    width: 180px;
+    background: rgba(132, 160, 57, 0.47);
+    margin: 0 auto;
+}
+.btnCajaDestacados:hover, .btnCajaDestacados:focus{
+    background: #84a039;
+}
+.img-center {
+    margin: 0 auto;
+}
+
+
+
+.try{
+    background-color: #C6C6C6;
+}
+
+
+
+
+
+/*FORMULARIO REGISTRO*/
+#cuerpoFormulario{
+    position: absolute;
+    background: url(../img/fondo_arena.png);
+    background-repeat: no-repeat; 
+    text-align: cover;
+    top: 25%;
+    left: 16%;
+    width: 68%;
+    height: 60%;
+    border: 1px solid;
+}
+
+#headerFormulario{
+    position: absolute;
+    height: 10%;
+    width: 100%;
+    text-align: center;
+    background: linear-gradient(to bottom, #603813 0%, #a86f39 50%, #603813 100%);
+}
+
+#headerFormulario>p{
+    position: relative;
+    font-family: 'ni7seg';
+    color: #FDD1A8;
+    margin-top: 1%;
+}
+
+#cajaDogtag{
+    width: 44%;
+    height: 80%;
+}
+
+.dogtagText{
+    position: relative;
+    z-index: 1;
+    text-align: left;
+    width: 50%;
+    height:10%;
+    top: 45%;
+    left: 22%;
+    -o-transform: rotate(47deg);
+    -webkit-transform: rotate(47deg);
+    -moz-transform: rotate(47deg);
+    -ms-transform: rotate(47deg);
+    transform: rotate(47deg);
+    //background-color:  blue;
+}
+
+#p4Dogtag{
+    //background-color: red;
+    top: 33%;
+    left: 8%;
+}
+#p2Dogtag{
+    //background-color: red;
+    top: 45%;
+    left: 20%;
+    text-align: left;
+}
+
+#imgDogtag{
+    position: absolute;
+    width: 44%;
+    height: 80%;
+    bottom: 13%;
+    left: -4%;
+}
+
+#formulario{
+    position: absolute;
+    text-align: left;
+    left: 30%;
+    top: 10%;
+    width: 67%;
+    height: 90%;
+}
+
+#formulario label{
+    position: relative;
+    margin-bottom: 5%;
+    margin-right: 5%;
+    margin-left: 4%;
+}
+
+#formulario input{
+    position: relative;
+    margin-bottom: 2%;
+    margin-top: 1%;
+}
+
+#formulario input:focus{
+    background:  rgba(154, 117, 84, 0.74);
+}
+
+
+#formulario input:last-child{
+    position: absolute;
+    right: 107%;
+    top: 85%;
+    height: 40px;
+    width: 150px;
+    font-family: 'ni7seg';
+    color: #FDD1A8;
+    background: linear-gradient(to bottom, #603813 0%, #a86f39 50%, #603813 100%);
+}
+
+.visible{
+    visibility: visible;
+}
+.oculto{
+    visibility: hidden;
+}
+
+
+    .panelGuest li a .nomostrar{
+        display: none!important;
+        color: red;
+    }
+    .nomostrar{
+        display: none!important;
+    }
+
+
+
+
+.cuerpoCatalogo{
+    background-color: rgba(213, 189, 167, 0.72);
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+
+
+#modalShare {
+    margin-left:-200px;
+ }
+
+@media (max-width: 767px) {
+    #modalShare {
+        width: auto;
+        margin-left: auto;
+    }
+}
+
+#modalShareBody {
+    display: none; 
+}
+#resultsUsers{ display: none}
+#resultsCategories{ display: none}
+#resultsProducts{ display: none}
+#panelGuest{
+    float:left;
+    height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-right:solid #ff920a 2px;
+    z-index: 1;
+}
+#panelGuest li{
+    font-size: 16px; 
+    background-color: #C6C6C6;
+    margin-bottom: 5px;
+}
+.botonBorrar{
+    top:-2px;
+    z-index: 10;
+    margin-left: 5px!important;
+}
+.botonModificar{
+    top:-2px;
+    z-index: 10;
+}
+.botonModificar:hover{
+    color: black!important;
+}
+
+
+#formFile {
+    display: none;
+}
+
+#XMLArea{
+    display: none;
+    margin: 0!important;
+}
+#submitArea{
+    display: none;
+}
+#XMLArea textArea{
+    margin-left: 0!important;
+    width: 100%!important;
+    height: 400px!important;
+}
+#formNewUser{
+    display: none;
+}
+#formNewProduct{
+    display:none;
+}
+#formNewCategory{
+    display:none;
+}
+#panelControl input{
+    margin-left: 50px;
+}
+#panelControl textArea{
+    margin-left: 50px;
+    width: 175px;
+    height: 100px;
+}
+#panelControl select{
+    margin-left: 50px!important;
+}
+#formNewCategory{
+    padding-top: 10px; 
+}
+#btnCargaMasiva{
+    padding-bottom: 10px;
+}
+
+
+.panel header a{
+    margin: 0px!important;
+    padding: 0px;
+}
+
+#elementos{
+    margin: 0;
+    padding: 0;
+}
+
+
+
+/* -------- NEWS -------- */
+
+.rectangulo > i {
+    position: absolute;
+    display: inline-block;
+    width: 400px;
+    height: 180px;
+    background-color: #9D9EA0;
+    right: 50px;
+    top: 80px;
+    z-index: 10;
+}
+
+
+.triangulo > i {
+    position: absolute;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    border: 2em solid transparent;
+    margin-top: -2em;
+    border-bottom: 1em solid #9D9EA0;
+    right: 50px;
+    top: 66px;
+    z-index: 10;
+}
+
+
+
+
+
+
+
