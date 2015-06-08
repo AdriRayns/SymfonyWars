@@ -123,7 +123,7 @@ nomaya_social:
     buttons:
         facebook:
             url:            "http://www.facebook.com/rayns.mindproblemzcrew"
-            locale:         "fr_FR"
+            locale:         "es_ES"
             send:           false
             width:          300
             showFaces:      false
@@ -131,10 +131,10 @@ nomaya_social:
         twitter:
             url:            null
             #locale:         "fr"
-            message:        "Je veux partager ça avec vous"
+            message:        "Check this article: "
             text:           "Tweet"
-            via:            "L'Equipe cartedevisitevirtuelle.fr"
-            tag:            "ttot"
+            via:            "Don_Rayns"
+            tag:            "airsoft"
         googleplus:
             url:            "https://plus.google.com/u/0/112511943308189906590/posts"
             #locale :        "fr"

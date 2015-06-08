@@ -48,8 +48,10 @@
                                 </li>
 
                                 <li class="list-group-item"> 
-                                    {{ twitterButton( { 'message':'message', 'url':"http://pfg.com/product/" ~ product.slug})}}
-                                    {{ facebookButton( {'url':"http://pfg.com/product/" ~product.slug})  }) }}
+                                    {% set twitterUrl = "http://"+path('product_see',{'product_slug':product.slug}) %}
+                                    {{ twitterButton( { 'message':'message', 'url': "http://pfg.com/product/" ~ product.slug   } ) }}
+                                    {{ facebookButton( {'url':"http://pfg.nvqlt.com/" ~ product.slug  }) }}
+
                                 </li>
                             </ul>
                         </div>
