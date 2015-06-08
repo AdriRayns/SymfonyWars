@@ -21,15 +21,6 @@ class AdminController extends BaseAdminController {
         */
     }
 
-
-
-    
-
-
-
-
-
-
 /**
  * @Route("/admin", name="easy_admin_bundle")
  */

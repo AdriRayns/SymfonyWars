@@ -7,12 +7,12 @@
 {% for category in allCategories %} 
     {% if category.parent is null%}
     <li style="height:50px;margin:0 5px 0 5px;" class ="dropdown">
-        <a  href="#"> {{category.name}} </a>
+        <a  href="# "> {{category.name}} </a>
         <span class="dropdown-toggle glyphicon glyphicon-menu-down" data-toggle="dropdown" ></span>
         {% if category.childrens is not empty%}
             <ul  class="dropdown-menu " role="menu">
             {% for children in category.childrens %}
-                    <li><a href="#"> {{ children.name }} </a></li>              
+                    <li><a href="{{path('category_see', {'category_slug': children.slug } )}}"> {{ children.name }} </a></li>              
             {% endfor %}
             </ul>
         {% endif %}

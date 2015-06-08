@@ -1,0 +1,67 @@
+{% extends 'baseFunny.html.twig' %}
+
+
+{#
+{% block body %}
+<div class="row">
+    <div class="col-md-12 ">
+        <header class=""><p> {{product.name}} </p></header>
+        <div class="col-lg-4">
+            <img src="{{asset('bundles/web/img/') }}{{product.imgRoute}}"  style="width: 350px">
+        </div>
+        {% if is_granted('ROLE_USER') %}
+            <div class="col-lg-3">
+                <h3> <strong>Precio:</strong> <strike>{{product.price }} €</strike></h3>
+                <h3><strong>Descuento:</strong> {{product.discount }} % <br><br>
+                <span class="label label-info">Precio Usuario: <strong> {{product.price * ((100-product.discount)/100)  }} €</strong></span>
+                </h3>
+            </div>
+        {% else %}
+            <div class="col-lg-3">
+                <h3> <strong>Precio:</strong> {{product.price }} €</h3>
+                <h3><strong>Registrate para obtener descuento de:</strong> {{product.discount }} % <br><br>
+            </div>
+        {% endif %}
+            <div class="col-lg-4">
+                {% if (product.description != "" or product.description == null) %}
+                    {{product .description}}
+                {% else %}
+                    No hay descripción para este producto
+                {% endif %}
+            </div>
+    </div>
+</div>
+{% endblock %} #}
+
+
+
+{% block body %}
+<div class="row">
+{% if category_products is not empty %}
+    {% for product in category_products  %}
+        <div class="col-lg-4">
+            <img src="{{asset('bundles/web/img/') }}{{product.imgRoute}}"  style="width: 350px">
+            {% if is_granted('ROLE_USER') %}
+                    <h3> <strong>Precio:</strong> <strike>{{product.price }} €</strike></h3>
+                    <h3><strong>Descuento:</strong> {{product.discount }} % <br><br>
+                    <span class="label label-info">Precio Usuario: <strong> {{product.price * ((100-product.discount)/100)  }} €</strong></span>
+                    </h3>
+            {% else %}
+                    <h3> <strong>Precio:</strong> {{product.price }} €</h3>
+                    <h3><strong>Registrate para obtener descuento de:</strong> {{product.discount }} % <br><br>
+            {% endif %}
+            {% if (product.description != "" or product.description == null) %}
+                {{product .description}}
+            {% else %}
+                No hay descripción para este producto
+            {% endif %}
+        </div>
+    {% endfor %}
+
+{% else %}
+
+<h2>Lo sentimos</h2><h4>Actualmente no hay productos en esta categoría</h4>
+
+{% endif %}
+</div>
+{% endblock %}

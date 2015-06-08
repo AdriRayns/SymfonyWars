@@ -6,7 +6,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-
 class ProductController extends Controller
 {
     public function seeAction(Request $request, $product_slug)
@@ -30,14 +29,6 @@ class ProductController extends Controller
         return $this->render('ProductBundle:Product:product.html.twig', array('product_slug' => $product_slug, 
                                                                             'saveAction' => $saved,
                                                                             'categories' => $categories));
-    }
-
-
-    public function getCategories(){
-        $em = $this->getDoctrine()->getManager();
-        $categories = $em->getRepository('ProductBundle:Category')->findAll();
-
-        return $categories;
     }
 
 
