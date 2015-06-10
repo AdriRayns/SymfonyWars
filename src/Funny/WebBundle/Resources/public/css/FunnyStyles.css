@@ -454,8 +454,8 @@ footer a:hover{color: #c8d0b2!important; text-decoration: underline;}
     display:block;
     position:fixed;
     bottom:0;
-    height:50px;
     width:100%;
+    min-height: 20px;
     background:rgba(0,0,0,0.8);
     color:#fff;
     font-size:11px;
@@ -463,10 +463,10 @@ footer a:hover{color: #c8d0b2!important; text-decoration: underline;}
     z-index:1000;
 }
 .msgcookie p{
-    width:960px;
+    width:90%;
     margin:0 auto;
-    background:url(/bundles/web/cookie.png) 0 0 no-repeat;
-    padding:10px 0 0 30px
+    background:url(/bundles/web/notice.png) 0 0 no-repeat;
+    padding:10px 0 0 20px
 }
 .msgcookie p a:link,.msgcookie p a:active,.msgcookie p a:visited,.msgcookie p a:hover{
     color:#fff
@@ -474,8 +474,8 @@ footer a:hover{color: #c8d0b2!important; text-decoration: underline;}
 .msgcookie a.close{
     float:right;
     display:block;
+    height: 30px;
     width:16px;
-    height:50px;
     background:url(/bundles/web/cookie.png) 0 -45px no-repeat;
     overflow:hidden;text-indent:-80px;opacity:0.5;margin:0 0 0 40px 
 }
