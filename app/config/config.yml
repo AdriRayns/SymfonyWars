@@ -114,7 +114,7 @@ easy_admin:
                     #- { name: 'prueba', type: 'route', icon: 'plus-square' }
                 fields: [name, category, price, discount, novelty, highlight]
             new:
-                fields: [name, category, brand, price, discount,  description, novelty, highlight ]
+                fields: [name, category, brand, price, discount,  description, novelty, highlight, imgRoute ]
             edit:
                 fields: [category, name, brand, price, discount, description, novelty, highlight ]
 

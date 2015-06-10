@@ -57,6 +57,100 @@ class AdminController extends BaseAdminController {
         ));
     }
 
-    
+
+
+
+
+    public function prePersistProductEntity($entity){
+        /*
+        $slug = $this->get('slugger')->slugify($entity->getTitle());
+        $entity->setSlug($slug);
+
+
+        $post = $this->get('request')->get("form");
+
+        if(array_key_exists('img',$post))
+            return var_dump($post['img']);
+        else
+            return var_dump($post);
+
+        $post = $this->get('request')->get("img");
+
+            return var_dump($post);
+        */
+         if(isset($_POST["submit"])) {
+            $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+            if($check !== false) {
+                echo "File is an image - " . $check["mime"] . ".";
+                $uploadOk = 1;
+            } else {
+                echo "File is not an image.";
+                $uploadOk = 0;
+            }
+        }
+            
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function createProductNewForm($entity, array $entityProperties){
+
+        /*$formBuilder = $this->createFormBuilder($entity, array(
+            'data_class' => $this->entity['class'],
+            'attr' => array('class' => $formCssClass, 'id' => $view.'-form'),
+        ));*/
+        $formCssClass = array_reduce($this->config['design']['form_theme'], function ($previousClass, $formTheme) {
+            return sprintf('theme_%s %s', strtolower(str_replace('.html.twig', '', basename($formTheme))), $previousClass);
+        });
+
+        $formBuilder = $this->createFormBuilder($entity, array(
+            'data_class' => $this->entity['class'],
+            'attr' => array('class' => $formCssClass),
+        ));
+
+        foreach ($entityProperties as $name => $metadata) {
+            $formFieldOptions = array();
+
+            if ('association' === $metadata['fieldType'] && in_array($metadata['associationType'], array(ClassMetadataInfo::ONE_TO_MANY, ClassMetadataInfo::MANY_TO_MANY))) {
+                continue;
+            }
+
+            if ('collection' === $metadata['fieldType']) {
+                $formFieldOptions = array('allow_add' => true, 'allow_delete' => true);
+
+                if (version_compare(\Symfony\Component\HttpKernel\Kernel::VERSION, '2.5.0', '>=')) {
+                    $formFieldOptions['delete_empty'] = true;
+                }
+            }
+
+            $formFieldOptions['attr']['field_type'] = $metadata['fieldType'];
+            $formFieldOptions['attr']['field_css_class'] = $metadata['class'];
+            $formFieldOptions['attr']['field_help'] = $metadata['help'];
+
+            $formBuilder->add($name, $metadata['fieldType'], $formFieldOptions);
+        
+        }
+
+        return $formBuilder->getForm();
+        /*
+        return var_dump($formBuilder);
+         */
+
+
+    }
 
 }
