@@ -51,7 +51,7 @@
         {
             if (!$.cookie("msgcookie"))
             {
-                $("body").prepend("<div class='msgcookie'><p><a href='#' class='close'></a>Esta web utiliza 'cookies' propias y de terceros para ofrecerle una mejor experiencia y servicio y poder registrar el proceso de compra. Al navegar o utilizar nuestros servicios el usuario acepta el uso que hacemos de las 'cookies'. <a href='{{path('cookies')}}'>M&aacute;s informaci&oacute;n</a></p></div>");
+                $("body").prepend("<div class='msgcookie'><p><a href='#' class='close'></a>Esta web utiliza 'cookies' propias y de terceros para ofrecerle una mejor experiencia y servicio y poder registrar el proceso de compra. Al navegar o utilizar nuestros servicios el usuario acepta el uso que hacemos de las 'cookies'. <br> <a href='{{path('cookies')}}' style='font-weight:bold;' target='_blank'>M&aacute;s informaci&oacute;n sobre la pol&iacute;tica de cookies</a></p></div>");
                 
                 $("body").on("click", ".close", function(e) {
                     e.preventDefault();
