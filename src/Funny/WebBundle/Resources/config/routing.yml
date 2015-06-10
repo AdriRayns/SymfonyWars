@@ -5,3 +5,7 @@ web_homepage:
 web_search_results:
     path:   /searchresults
     defaults: { _controller: WebBundle:Default:search }
+
+cookies:
+    path:   /cookies_policy
+    defaults: { _controller: WebBundle:Default:cookiesSee }

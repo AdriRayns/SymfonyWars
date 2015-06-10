@@ -39,7 +39,10 @@ class DefaultController extends Controller
 
     }
 
+    public function cookiesSeeAction() {
 
+        return $this->render('WebBundle:Templates:Cookies/cookies.html.twig');
+    }
 
 
     public function getCategories(){
