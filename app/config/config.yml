@@ -133,7 +133,7 @@ nomaya_social:
             #locale:         "fr"
             message:        "Check this article: "
             text:           "Tweet"
-            via:            "Don_Rayns"
+            via:            null
             tag:            "airsoft"
         googleplus:
             url:            "https://plus.google.com/u/0/112511943308189906590/posts"
