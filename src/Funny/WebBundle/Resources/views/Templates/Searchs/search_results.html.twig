@@ -3,21 +3,26 @@
 {% block body %}
 <div class="row">
     <div class="col-md-12 ">
-        <header class="text-center"><h3>Resultados</h3></header>
-            <h2>Categorías:</h2></br>
-            {% for category in category_results %}
-                {% if category.parent is not null %}
-                <div class="col-md-4" style="margin: 5px 0px">
-                    <h4><a href=" {{path('category_see', {'category_slug': category.slug} )}} ">{{ category.name }}</a></h4>
-                </div> 
-                {% endif %}
-            {% endfor %}
+        <header class="text-right"><h3>Resultados de: {{stringToSearch}}</h3></header>
+            {% if category_results is not empty %}
+            <div class="col-md-12">
+                <h2>Categorías:</h2></br>
+            </div>
+                {% for category in category_results %}
+                    {% if category.parent is not null %}
+                    <div class="col-md-4" style="margin: 5px 0px">
+                        <h4><a href=" {{path('category_see', {'category_slug': category.slug} )}} ">{{category.name}}</a></h4>
+                    </div> 
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
         <div class="col-md-12">
             <h2>Productos:</h2></br>
         </div>
+        {% if product_results is not empty%}
         <div class="col-md-12" id="sort" style="margin: 1% 0" >
-            <button class="btn-info" data-sort-by="nombreAsc"> Nombre Ascendente</button>
-            <button class="btn-info" data-sort-by="precioAsc"> Precio Ascendente</button>
+            <button class="btn-info" data-sort-by="nombreDes"> Nombre Descendiente</button>
+            <button class="btn-info" data-sort-by="precioDes"> Precio Descendiente</button>
         </div>
         <div id="elementos" class="col-md-12" style="position:relative; height:650px;">
         {% for product in product_results %}
@@ -38,12 +43,14 @@
                                     <h4>Marca: {{product.brand}}</h4>
                                 </li>
                                 <li class="list-group-item"> 
-                                    {% if (is_granted('ROLE_USER') and product.discount != 0 ) %}
-                                        <h4>Precio Usuario: <strong class="precioAsc precioDes"> {{product.price * ((100-product.discount)/100)  }} €</strong></h4>
-                                    {% else %}
-                                        <h4>Precio: <strong class="precioAsc precioDes"> {{product.price}}</strong>
-                                    {% endif %}
-                                    <a href="{{ path('product_see', {'product_slug': product.slug }) }}" role="button" class="btn btn-primary" style="float:right;margin-top: -10px;">Ver Producto</a>
+                                    <h4>
+                                        {% if (is_granted('ROLE_USER') and product.discount != 0 ) %}
+                                            Precio Usuario: <strong class="precioAsc precioDes"> {{product.price * ((100-product.discount)/100)  }} </strong>€
+                                        {% else %}
+                                            Precio: <strong class="precioAsc precioDes"> {{product.price}} </strong>€
+                                        {% endif %}
+                                        <a href="{{ path('product_see', {'product_slug': product.slug }) }}" role="button" class="btn btn-primary" style="float:right;margin-top: -10px;">Ver Producto</a>
+                                    </h4>
                                 </li>
 
                                 <li class="list-group-item"> 
@@ -58,6 +65,11 @@
                 </div>
             {% endfor %}
         </div>
+        {% else %}
+            <div class="col-md-8">
+                <h3>No hay productos que coincidan con la búsqueda</h3>
+            </div>
+        {% endif %}
     </div>
 </div>
 {% endblock %}
