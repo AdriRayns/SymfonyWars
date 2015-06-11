@@ -32,11 +32,11 @@ $('#sort').on('click','button',function(){
     }
     else if(sortByValue === 'precioAsc'){
         $(this).attr('data-sort-by', 'precioDes');
-        $(this).text("Nombre Descendiente ");
+        $(this).text("Precio Descendiente ");
     }
     else if(sortByValue === 'precioDes'){
         $(this).attr('data-sort-by', 'precioAsc');
-        $(this).text("Nombre Ascendiente ");
+        $(this).text("Precio Ascendiente ");
     }
 
 });

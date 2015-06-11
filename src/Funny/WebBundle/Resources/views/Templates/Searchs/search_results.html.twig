@@ -15,11 +15,9 @@
         <div class="col-md-12">
             <h2>Productos:</h2></br>
         </div>
-        <div id="sort" style="display:inline-block">
-            <button class="btn-" data-sort-by="nombreAsc"> Nombre Ascendente</button>
-            <button class="btn-danger" data-sort-by="nombreDes"> Nombre Descendente</button>
-            <button class="btn-warning" data-sort-by="precioAsc"> Precio Ascendente</button>
-            <button class="btn-warning" data-sort-by="precioDes"> Precio Descendente</button>
+        <div class="col-md-12" id="sort" style="margin: 1% 0" >
+            <button class="btn-info" data-sort-by="nombreAsc"> Nombre Ascendente</button>
+            <button class="btn-info" data-sort-by="precioAsc"> Precio Ascendente</button>
         </div>
         <div id="elementos" class="col-md-12" style="position:relative; height:650px;">
         {% for product in product_results %}
@@ -29,7 +27,7 @@
                         <a href="{{ path('easy_admin_bundle' ,{'entity':'Product', 'view':'list', 'action':'edit', 'id': product.id } ) }}" role="button" class="btn btn-warning" style="margin:1%;position:relative;float:right">Modificar</a>
                     {% endif %}
                         <header class="text-center">
-                            <h3 class="nombreAsc nombreDesc">{{product.name}}</h3>
+                            <h3 class="nombreAsc nombreDes">{{product.name}}</h3>
                         </header>
                         <div class="ccm-core-commerce-add-to-cart" >
                             <ul class="list-group">

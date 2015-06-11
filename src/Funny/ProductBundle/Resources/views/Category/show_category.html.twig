@@ -1,13 +1,13 @@
 {% extends 'baseFunny.html.twig' %}
 
 {% block body %}
-<div id="sort" >
-    <button class="btn" data-sort-by="nombreAsc"> Nombre Ascendente</button>
-    <button class="btn-warning" data-sort-by="precioAsc"> Precio Ascendente</button>
-</div>
 <div class="row">
     <div class="col-md-12 ">
         <header class="text-center" style="margin-bottom:5%"><h3>{{category.name}} </h3></header>
+        <div class="col-md-12" id="sort" style="margin: 1% 0" >
+            <button class="btn-info" data-sort-by="nombreAsc"> Nombre Ascendente</button>
+            <button class="btn-info" data-sort-by="precioAsc"> Precio Ascendente</button>
+        </div>
         <div id="elementos" class="col-md-12" style="position:relative; height:650px;">
         {% for product in category_products %}
         <div class="col-md-4 elemento">
