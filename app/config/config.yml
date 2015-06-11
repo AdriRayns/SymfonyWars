@@ -130,7 +130,7 @@ nomaya_social:
             layout:         "button_count"
         twitter:
             url:            null
-            #locale:         "fr"
+            locale:         "es"
             message:        "Check this article: "
             text:           "Tweet"
             via:            null

@@ -4,51 +4,55 @@
 <div class="row">
     <div class="col-md-12 ">
         <header class="text-center" style="margin-bottom:5%"><h3>{{category.name}} </h3></header>
-        <div class="col-md-12" id="sort" style="margin: 1% 0" >
-            <button class="btn-info" data-sort-by="nombreAsc"> Nombre Ascendente</button>
-            <button class="btn-info" data-sort-by="precioAsc"> Precio Ascendente</button>
-        </div>
-        <div id="elementos" class="col-md-12" style="position:relative; height:650px;">
-        {% for product in category_products %}
-        <div class="col-md-4 elemento">
-            <div class="panel panel-default ">
-                {% if is_granted('ROLE_ADMIN') %}
-                    <a href="{{ path('easy_admin_bundle' ,{'entity':'Product', 'view':'list', 'action':'edit', 'id': product.id } ) }}" role="button" class="btn btn-warning" style="margin:1%;position:relative;float:right">Modificar</a>
-                {% endif %}
-                    <header class="text-center">
-                        <h3 class="nombreAsc nombreDes">{{product.name}}</h3>
-                    </header>
-                    <div class="ccm-core-commerce-add-to-cart" >
-                        <ul class="list-group">
-                            <li class="list-group-item"> 
-                                <img class="img-responsive img-center" src="{{asset('bundles/web/img/')}}{{product.imgRoute}}">
-                            </li>
-                            <li class="list-group-item"> 
-                                <h4>Marca: {{product.brand}}</h4>
-                            </li>
-                            <li class="list-group-item">
-                                <h4>
-                                    {% if (is_granted('ROLE_USER') and product.discount != 0 ) %}
-                                        Precio Usuario: <strong class="precioAsc precioDes"> {{product.price * ((100-product.discount)/100)  }} </strong>€
-                                    {% else %}
-                                        Precio: <strong class="precioAsc precioDes"> {{product.price}} </strong>€
-                                    {% endif %}
-                                    <a href="{{ path('product_see', {'product_slug': product.slug }) }}" role="button" class="btn btn-primary" style="float:right;margin-top: -10px;">Ver Producto</a>
-                                    </h4>
-                            </li>
-
-                            <li class="list-group-item"> 
-                                {% set twitterUrl = "http://"+path('product_see',{'product_slug':product.slug}) %}
-                                {{ twitterButton( { 'url': "http://pfg.com/product/" ~ product.slug   } ) }}
-                                {{ facebookButton( {'url':"http://pfg.nvqlt.com/product/" ~ product.slug  }) }}
-                            </li>
-                        </ul>
-                    </div>
-
-                </div>
+        {% if category_products is not empty %}
+            <div class="col-md-12" id="sort" style="margin: 1% 0" >
+                <button class="btn-info" data-sort-by="nombreDes"> Nombre Descendiente</button>
+                <button class="btn-info" data-sort-by="precioDes"> Precio Descendiente</button>
             </div>
-            {% endfor %}
-        </div>
+            <div id="elementos" class="col-md-12" style="position:relative; height:650px;">
+            {% for product in category_products %}
+            <div class="col-md-4 elemento">
+                <div class="panel panel-default ">
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <a href="{{ path('easy_admin_bundle' ,{'entity':'Product', 'view':'list', 'action':'edit', 'id': product.id } ) }}" role="button" class="btn btn-warning" style="margin:1%;position:relative;float:right">Modificar</a>
+                    {% endif %}
+                        <header class="text-center">
+                            <h3 class="nombreAsc nombreDes">{{product.name}}</h3>
+                        </header>
+                        <div class="ccm-core-commerce-add-to-cart" >
+                            <ul class="list-group">
+                                <li class="list-group-item"> 
+                                    <img class="img-responsive img-center" src="{{asset('bundles/web/img/')}}{{product.imgRoute}}">
+                                </li>
+                                <li class="list-group-item"> 
+                                    <h4>Marca: {{product.brand}}</h4>
+                                </li>
+                                <li class="list-group-item">
+                                    <h4>
+                                        {% if (is_granted('ROLE_USER') and product.discount != 0 ) %}
+                                            Precio Usuario: <strong class="precioAsc precioDes"> {{product.price * ((100-product.discount)/100)  }} </strong>€
+                                        {% else %}
+                                            Precio: <strong class="precioAsc precioDes"> {{product.price}} </strong>€
+                                        {% endif %}
+                                        <a href="{{ path('product_see', {'product_slug': product.slug }) }}" role="button" class="btn btn-primary" style="float:right;margin-top: -10px;">Ver Producto</a>
+                                    </h4>
+                                </li>
+
+                                <li class="list-group-item"> 
+                                    {% set twitterUrl = "http://"+path('product_see',{'product_slug':product.slug}) %}
+                                    {{ twitterButton( { 'url': "http://pfg.com/product/" ~ product.slug   } ) }}
+                                    {{ facebookButton( {'url':"http://pfg.nvqlt.com/product/" ~ product.slug  }) }}
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="col-md-12" id="sort" style="margin: 1% 0" > <h4 style="text-align:center;background-color:orange">¡Actualmente no hay productos en esta categoría!</h4></div>
+        {% endif %}
     </div>
 </div>
 {% endblock %}
