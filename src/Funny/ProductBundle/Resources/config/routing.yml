@@ -8,7 +8,7 @@ product_edit:
 
 category_see:
     path:   /category/{category_slug}
-    defaults: { _controller: ProductBundle:Category:seeCategory , category_slug: null}
+    defaults: { _controller: ProductBundle:Category:seeCategory , category_slug: null, category: null}
 
 easy_admin_bundle:
     resource: @ProductBundle/Controller/AdminController.php

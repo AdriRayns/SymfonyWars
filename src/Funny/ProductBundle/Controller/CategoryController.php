@@ -14,9 +14,8 @@ class CategoryController extends Controller
         $category_products = $this->getDoctrine()->getRepository('Funny\ProductBundle\Entity\Product')->findByCategory($category);
 
         //return var_dump($category_products);
-        return $this->render('ProductBundle:Category:show_category.html.twig', array('category_products' => $category_products));
-
-
+        return $this->render('ProductBundle:Category:show_category.html.twig', array('category_products' => $category_products,
+                                                                                    'category' => $category));
         
     }
 
