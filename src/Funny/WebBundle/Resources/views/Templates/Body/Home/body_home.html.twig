@@ -142,7 +142,7 @@
                 <div class="carousel-inner " role="listbox">
                     {% set counter = 0 %}
                     {% for product in products %}
-                        {% if (product.novelty and counter != 0)  %}
+                        {% if (product.discount !=0 and counter != 0)  %}
                             <div class="item">
                                 <img class="img-responsive img-center" src="{{asset('bundles/web/img/') }}{{product.imgRoute}}" title="{{product.name}}" alt="{{product.name}}">
                                 <a href="{{ path('product_see', {'product_slug': product.slug }) }}" class="btn btn-primary " role="button">Ver Producto</a>
