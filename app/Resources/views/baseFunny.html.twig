@@ -30,19 +30,16 @@
         <div class="row" style="width: 95%;">
             <div class="col-lg-12">
                 <h1 class="tagline"> Profesionales del Airsoft </h1><br>
-
-                <form name="search_form" method="POST" action="{{path('web_search_results')}}">
-                    <input name="stringToSearch" type="text" value=""/>
+                <form name="search_form" method="POST" action="{{path('web_search_results')}}" style="float:right">
+                    <input name="stringToSearch" type="text" placeholder="Busca productos o categorías"/ value="{%if stringToSearch is defined %}{{stringToSearch}}{%endif%}" />
                     <input type="submit" name="submit_search" class="btn btn-primary" value="Buscar"/>
                 </form>
-
-
             </div>
         </div>
-        <div class="container">
-            {% block body %} 
-            {% endblock %}
-            </div>
+        <div class="container" style="min-height:60vh">
+            {% block body %}{% endblock %}
+        </div>
+        {% include 'WebBundle:Templates:Footer/footer.html.twig' %}
         {% block javascripts %} {% endblock %}
         <script src="{{asset('bundles/web/js/prueba.js')}}"></script>
         <script src="{{asset('bundles/web/js/cookie.js')}}"></script>

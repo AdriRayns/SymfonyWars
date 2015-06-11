@@ -20,12 +20,15 @@ body{
 
 }
 footer{
-    background-color: #d39a6a;
+    position: absolute;
+    display: block;
+    bottom: 0;
+    background-color: black;
     text-align: center;
     margin-left: 5.5%;
     margin-right: 5.5%;
 }
-footer li{ text-decoration: none!important; }
+footer li{ text-decoration: none!important;  background-color: black}
 footer a{color: #2c3908!important; text-decoration: underline;}
 footer a:hover{color: #c8d0b2!important; text-decoration: underline;}
 

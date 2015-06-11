@@ -35,7 +35,8 @@ class DefaultController extends Controller
         $category_results = $category_query->getResult();
 
         return $this->render('WebBundle:Templates:Searchs/search_results.html.twig', array('product_results' => $product_results,
-                                                                                            'category_results' =>$category_results));
+                                                                                            'category_results' =>$category_results,
+                                                                                            'stringToSearch' => $toSearch));
 
     }
 
