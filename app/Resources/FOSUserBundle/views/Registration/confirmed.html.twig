@@ -5,8 +5,8 @@
 {% block fos_user_content %}
 
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-lg-12 militarBody">
-            <header class="colorMarron myFont myBigFont"><p> Confirmacion de registro</p></header>
+        <div class="col-xs-12 col-sm-12 col-lg-12">
+            <header class=""><p> Confirmacion de registro</p></header>
             <h3 style="color: black;"> {{ 'registration.confirmed'|trans({'%username%': user.username}) }}</h3>
             {% if app.session is not empty %}
                 {% set targetUrl = app.session.get('_security.' ~ app.security.token.providerKey ~ '.target_path') %}
