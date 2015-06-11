@@ -36,7 +36,7 @@
                 </form>
             </div>
         </div>
-        <div class="container" style="min-height:60vh">
+        <div class="container" >
             {% block body %}{% endblock %}
         </div>
         {% include 'WebBundle:Templates:Footer/footer.html.twig' %}
@@ -55,6 +55,8 @@
                     });
                 }
             });
+            $('.container').css('min-height', (63*screen.height)/100)
         </script>
+
     </body>
 </html>
