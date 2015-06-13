@@ -67,7 +67,6 @@ class AdminController extends BaseAdminController {
         $entity->setSlug($slug);
 
 
-        $post = $this->get('request')->get("form");
 
         if(array_key_exists('img',$post))
             return var_dump($post['img']);
@@ -75,20 +74,23 @@ class AdminController extends BaseAdminController {
             return var_dump($post);
 
         $post = $this->get('request')->get("img");
+        return var_dump($post);
 
-            return var_dump($post);
         */
-         if(isset($_POST["submit"])) {
-            $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-            if($check !== false) {
-                echo "File is an image - " . $check["mime"] . ".";
-                $uploadOk = 1;
-            } else {
-                echo "File is not an image.";
-                $uploadOk = 0;
-            }
-        }
-            
+
+        $file = $this->get('request')->files->get('form');
+        $entity->preUpload($file['file']);
+        $entity->upload();
+    }
+
+
+
+    public function preUpdateProductEntity($entity){
+        $entity->removeUpload();
+        $file = $this->get('request')->files->get('form');
+        $entity->preUpload($file['file']);
+        $entity->upload();
+
     }
 
 
@@ -103,11 +105,7 @@ class AdminController extends BaseAdminController {
 
 
 
-
-
-
-
-    public function createProductNewForm($entity, array $entityProperties){
+    public function createProductForm($entity, array $entityProperties){
 
         /*$formBuilder = $this->createFormBuilder($entity, array(
             'data_class' => $this->entity['class'],
@@ -141,7 +139,8 @@ class AdminController extends BaseAdminController {
             $formFieldOptions['attr']['field_css_class'] = $metadata['class'];
             $formFieldOptions['attr']['field_help'] = $metadata['help'];
 
-            $formBuilder->add($name, $metadata['fieldType'], $formFieldOptions);
+            $formBuilder->add($name, $metadata['fieldType'], $formFieldOptions)
+            ->add('file', 'file', array('label' => 'Imagen'));
         
         }
 

@@ -43,7 +43,11 @@
                                 <p>{{product.name}} </p>
                             </div>
                             <div class="col-xs-6 col-sm-4 col-lg-4 vOffset1">
-                                <img class="img-responsive img-center" src="{{asset('bundles/web/img/') }}{{product.imgRoute}}" title="{{product.name}}" alt="{{product.name}}">
+                                {% if product.ImgRoute is null %}
+                                <img class="img-responsive img-center" src="/imagenpordefecto.png" title="{{product.name}}" alt="{{product.name}}">
+                                {% else %}
+                                <img class="img-responsive img-center" src="/{{product.getWebPath}}" title="{{product.name}}" alt="{{product.name}}">
+                                {% endif %}
                             </div>
                             <div class="hidden-xs col-sm-4 col-lg-4  font-weight:bold; vOffset3">
                                 <p>{{product.description}}</p>

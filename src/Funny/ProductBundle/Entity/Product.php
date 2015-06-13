@@ -3,6 +3,9 @@
 namespace Funny\ProductBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\File\MimeType\ExtensionGuesser;
 
 /**
  * Product
@@ -12,6 +15,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Product
 {
+    /**
+    * @Assert\File(maxSize="5M")
+    */
+    private $file;
+
     /**
      * @var integer
      *
@@ -93,7 +101,6 @@ class Product
 
     public function __construct(){
         $this->description="";
-        $this->imgRoute = "default_notFound.png";
     }
 
     /**
@@ -344,5 +351,98 @@ class Product
 
     public function __toString(){
         return $this->$slug;
+    }
+
+
+
+
+    public function getAbsolutePath()
+    {
+      return null === $this->imgRoute ? null : realpath($this->getUploadRootDir()."/".$this->imgRoute);
+    }
+    
+    public function getWebPath()
+    {
+      return null === $this->imgRoute ? null : $this->getUploadDir()."/".$this->imgRoute;
+    }
+    
+    public function getUploadRootDir()
+    {
+      // la ruta absoluta al directorio dï¿½nde se deben guardar los documentos cargados
+      return realpath(__DIR__."/../../../../web/".$this->getUploadDir());
+    }
+        
+    protected function getUploadDir()
+    {
+      // se libra del __DIR__ para no desviarse al mostrar ï¿½doc/imageï¿½ en la vista.
+      return 'uploads/';
+    }
+    
+    /**
+     * Set file
+     *
+     * @param file $file
+     * 
+     */
+    public function setFile($file)
+    {
+        $this->file = $file;
+    
+        return $this;
+    }
+
+    /**
+     * Get file
+     *
+     * @param file $file
+     * 
+     */
+    public function getFile()
+    {
+        return $this->file;
+    }
+
+    /**
+    * @ORM\PostRemove()
+    */
+    public function removeUpload()
+    {
+      if ($file = $this->getAbsolutePath()) {
+        unlink($file);
+      }
+    }
+
+    /**
+    * @ORM\PostPersist()
+    * @ORM\PostUpdate()
+    */
+    public function upload()
+    {
+      if (null === $this->file) {
+        return;
+      }
+      
+      // aquÃ­ debes lanzar una excepciÃ³n si el archivo no se puede mover
+      // para que la entidad no se persista en la base de datos
+      // lo cual hace automÃ¡ticamente el mÃ©todo move() del archivo subido
+      $this->file->move($this->getUploadRootDir(), $this->imgRoute); 
+      unset($this->file);
+    }
+
+    /**
+    * @ORM\PrePersist()
+    * @ORM\PreUpdate()
+    */
+    public function preUpload($file)
+    {
+      $this->setFile($file);
+      if (null !== $this->file) {
+        
+        //haz lo que quieras para generar un nombre Ãºnico
+        if ($this->file->guessExtension() === null) $this->format = 'bin';
+        else $this->format = $this->file->guessExtension();
+        
+        $this->setImgRoute(uniqid().'_'.uniqid() . '.' . $this->format);
+      }
     }
 }
