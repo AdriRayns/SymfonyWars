@@ -22,7 +22,7 @@
                         <div class="ccm-core-commerce-add-to-cart" >
                             <ul class="list-group">
                                 <li class="list-group-item"> 
-                                    <img class="img-responsive img-center" src="{{asset('bundles/web/img/')}}{{product.imgRoute}}">
+                                    <img class="img-responsive img-center" src="{% if product.ImgRoute is not null %}/{{product.getWebPath}}{% else %}{{asset('bundles/web/img/') ~'default_notFound.png' }} {%endif%}">
                                 </li>
                                 <li class="list-group-item"> 
                                     <h4>Marca: {{product.brand}}</h4>

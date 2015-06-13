@@ -5,7 +5,7 @@
     <div class="col-md-12 ">
         <header class=""><p> {{product.name}} </p></header>
         <div class="col-lg-4">
-            <img src="{{asset('bundles/web/img/') }}{{product.imgRoute}}"  style="width: 350px">
+            <img src="{% if product.ImgRoute is not null %}/{{product.getWebPath}}{% else %}{{asset('bundles/web/img/') ~'default_notFound.png' }} {%endif%}"  style="width: 350px">
         </div>
         {% if is_granted('ROLE_USER') %}
             <div class="col-lg-3">

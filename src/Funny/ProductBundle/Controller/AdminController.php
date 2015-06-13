@@ -28,6 +28,7 @@ class AdminController extends BaseAdminController {
         $entity = $this->request->query->get('entity');
         $id = $this->request->query->get('id');
         $entityObj = $this->em->getRepository('ProductBundle:'.$entity)->find($id);
+        $entityObj->removeUpload();
         $this->em->remove($entityObj);
         $this->em->flush();
 
@@ -77,7 +78,6 @@ class AdminController extends BaseAdminController {
         return var_dump($post);
 
         */
-
         $file = $this->get('request')->files->get('form');
         $entity->preUpload($file['file']);
         $entity->upload();
