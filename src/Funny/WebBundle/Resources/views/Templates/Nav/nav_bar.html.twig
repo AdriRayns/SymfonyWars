@@ -1,75 +1,5 @@
 
 {% set allCategories = globalCategories.getAllCategories %}
-{#
-<nav class="navbar navbar-inverse" role="navigation">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">Desplegable</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button> 
-    <a class="navbar-brand" href="{{path('web_homepage')}}" title="Inicio">FunnyWars</a>
-    </div>
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul style="margin:0 200px 0 200px;position:absolute;height:50px;" class="nav navbar-nav" >
-            {% include 'WebBundle:Templates:Nav/nav_section_categories.html.twig' %}
-        </ul>
-            {% if is_granted('ROLE_ADMIN') %}
-
-
-            <ul style="position:absolute;right:150px;" class="nav navbar-nav" >
-                <li id ="dropdown_gestion"class ="dropdown" style="height:50px;">
-                    <a href=" {{path('admin')}} ">Gestion</a>
-                    <ul id="ul_gestion" class="dropdown-menu " role="menu">
-                        <li><a href="{{ path('easy_admin_bundle',{'entity':'Product'})}}"> Productos </a></li>
-                        <li><a href="{{ path('easy_admin_bundle',{'entity':'Category'})}}"> Categorias </a></li>
-                        <li><a href="{{ path('easy_admin_bundle',{'entity':'User'})}}"> Usuarios </a></li>
-                    </ul>
-                </li>
-            </ul>
-            <a href="{{ path('fos_user_security_logout') }}" style="float:right;margin:7px 0 0 0;" class="btn btn-primary" role="button"> Cerrar Sesión </a>
-            
-
-
-            {% elseif is_granted('ROLE_USER') %}
-            <ul style="position:absolute; right:150px;" class="nav navbar-nav" >
-                <li stclass ="dropdown">
-                    <a href="{{path('fos_user_profile_show')}}">Perfil</a>
-                </li>
-            </ul>
-             <a href="{{ path('fos_user_security_logout') }}" style="float:right;margin:7px 0 0 0;" class="btn btn-primary" role="button"> Cerrar Sesión </a>
-            {% else %}
-            <ul style="position:absolute; right:150px;" class="nav navbar-nav" >
-                <li  class ="dropdown">
-                    <a href="{{path('fos_user_registration_register')}}">Registro</a>
-                </li>
-            </ul>
-            <!-- Button con onClick por JS -->
-            <a id="nav_user_buttom" style="float:right;margin:7px 0 0 0;z-index:11;"class="btn btn-primary" role="button"> Iniciar Sesión </a> 
-            <!-- Figuras CSS y formulario login -->
-            <i class="rectangulo"><i style="visibility:hidden;">
-                <form id="login_form" action="{{ path('fos_user_security_check') }}" method="post" name="form1" style="text-align:center;">
-                    <input type="hidden" name="_csrf_token" value="{% render controller('WebBundle:Default:getToken') %}"/>
-                    <input type="text" id="username" name="_username" autocomplete="on" value="{% if last_username is defined %}{{ last_username }}{% endif %}" placeholder="Username">
-                    <input class="" type="password" id="password" name="_password" placeholder="Contraseña">
-                    <input type="checkbox" id="remember_me" name="_remember_me" />
-                    <label for="remember_me">Recordarme</label>
-                    <button type="submit" class="btn">Iniciar sesión</button>
-                </form>
-            </i></i>
-            <i class="triangulo"><i style="visibility:hidden;"></i></i>
-            {% endif %}
-        
-    </div>
-</nav>
-#}
-
-
-
-
-
-
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -90,7 +20,7 @@
                 <ul class="dropdown-menu">
                     {% if category.childrens is not empty%}
                         {% for children in category.childrens %}
-                            <li><a href="{{path('category_see', {'category_slug': children.slug } )}}"> {{ children.name }} </a></li>              
+                            <li><a href="{{path('category_see', {'category_slug': children.slug } )}}"> {{ children.name }} </a></li>
                         {% endfor %}
                     {% endif %}
                 </ul>
@@ -98,60 +28,44 @@
             </ul>
             {%endif%}
         {%endfor%}
-
-
-        
-        
-
-
-
-        
-        
-            {% if is_granted('ROLE_ADMIN') %}
-                <ul class="nav navbar-nav navbar-right" >
-                    <li class="dropdown">
-                        <a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Gestion <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{{ path('easy_admin_bundle',{'entity':'Product'})}}"> Productos </a></li>
-                        <li><a href="{{ path('easy_admin_bundle',{'entity':'Category'})}}"> Categorias </a></li>
-                        <li><a href="{{ path('easy_admin_bundle',{'entity':'User'})}}"> Usuarios </a></li>  
-                        </ul>
-                    </li>
-                    <a href="{{ path('fos_user_security_logout') }}"  class="btn btn-primary" style="float:right;margin-top:4%;" role="button"> Cerrar Sesión </a>
-                </ul>
-            {% elseif is_granted('ROLE_USER') %}
-                <ul class="nav navbar-nav navbar-right" >
-                    <li><a href="{{path('fos_user_profile_show')}}" >Perfil</a></li>
-                    <a href="{{ path('fos_user_security_logout') }}"  class="btn btn-primary" style="float:right;margin-top:4%;"role="button"> Cerrar Sesión </a>
-                </ul>
-            {%else%}
-                <ul class="nav navbar-nav navbar-right" >
-                    <li><a href="{{path('fos_user_registration_register')}}" >¿Aún no estás registrado?</a></li>
-                    <a id="nav_user_buttom"  class="btn btn-primary" style="float:right;margin-top:3%;"role="button"> Iniciar sesión </a>
-                </ul>
-                <!-- Figuras CSS y formulario login -->
-                <i class="rectangulo"><i style="visibility:hidden;">
-                    <form id="login_form" action="{{ path('fos_user_security_check') }}" method="post" name="form1" style="text-align:center;">
-                        <input type="hidden" name="_csrf_token" value="{% render controller('WebBundle:Default:getToken') %}"/>
-                        <input type="text" id="username" name="_username" autocomplete="on" value="{% if last_username is defined %}{{ last_username }}{% endif %}" placeholder="Username">
-                        <input class="" type="password" id="password" name="_password" placeholder="Contraseña">
-                        <input type="checkbox" id="remember_me" name="_remember_me" />
-                        <label for="remember_me">Recordarme</label>
-                        <button type="submit" class="btn">Iniciar sesión</button>
-                    </form>
-                </i></i>
-                <i class="triangulo"><i style="visibility:hidden;"></i></i>    
-            {%endif%}
+        {% if is_granted('ROLE_ADMIN') %}
+            <ul class="nav navbar-nav navbar-right" >
+                <li class="dropdown">
+                    <a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Gestion <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ path('easy_admin_bundle',{'entity':'Product'})}}"> Productos </a></li>
+                    <li><a href="{{ path('easy_admin_bundle',{'entity':'Category'})}}"> Categorias </a></li>
+                    <li><a href="{{ path('easy_admin_bundle',{'entity':'User'})}}"> Usuarios </a></li>  
+                    </ul>
+                </li>
+                <a href="{{ path('fos_user_security_logout') }}"  class="btn btn-primary" style="float:right;margin-top:4%;" role="button"> Cerrar Sesión </a>
+            </ul>
+        {% elseif is_granted('ROLE_USER') %}
+            <ul class="nav navbar-nav navbar-right" >
+                <li><a href="{{path('fos_user_profile_show')}}" >Perfil</a></li>
+                <a href="{{ path('fos_user_security_logout') }}"  class="btn btn-primary" style="float:right;margin-top:4%;"role="button"> Cerrar Sesión </a>
+            </ul>
+        {%else%}
+            <ul class="nav navbar-nav navbar-right" >
+                <li><a href="{{path('fos_user_registration_register')}}" >¿Aún no estás registrado?</a></li>
+                <a id="nav_user_buttom"  class="btn btn-primary" style="float:right;margin-top:3%;"role="button"> Iniciar sesión </a>
+            </ul>
+            <!-- Figuras CSS y formulario login -->
+            <i class="rectangulo"><i style="visibility:hidden;">
+                <form id="login_form" action="{{ path('fos_user_security_check') }}" method="post" name="form1" style="text-align:center;">
+                    <input type="hidden" name="_csrf_token" value="{% render controller('WebBundle:Default:getToken') %}"/>
+                    <input type="text" id="username" name="_username" autocomplete="on" value="{% if last_username is defined %}{{ last_username }}{% endif %}" placeholder="Username">
+                    <input class="" type="password" id="password" name="_password" placeholder="Contraseña">
+                    <input type="checkbox" id="remember_me" name="_remember_me" />
+                    <label for="remember_me">Recordarme</label>
+                    <button type="submit" class="btn">Iniciar sesión</button>
+                </form>
+            </i></i>
+            <i class="triangulo"><i style="visibility:hidden;"></i></i>    
+        {%endif%}
       </div><!--/.nav-collapse -->
     </div><!--/.container-fluid -->
 </nav>
-
- 
-
-
-
-
-
 {% include 'WebBundle:TemplatesJS:nav_bar_js.html.twig' %}
 
 
