@@ -18,11 +18,11 @@
 <body id="{% block body_id %}{% endblock %}" class="{% block body_class %}{% endblock %}">
     <div id="wrapper">
         {% block wrapper %}
-        <nav class="navbar navbar-inverse" role="navigation" style="height:52px!important;">
+        <nav class="navbar navbar-inverse" role="navigation" style="height:52px!important;z-index:1000" >
             {% block header %}
-            <div id="header-contents">
-            <a href="{{ path('fos_user_security_logout') }}" style="float:right;margin:7px 0 0 0;" class="btn btn-primary" role="button"> Cerrar Sesión </a>
+            <div i class="container-fluid" style="background-color:#222">
                 <div class="navbar-header">
+                    
                     {% block navbar_header %}
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-nav">
                         <span class="sr-only">Toggle navigation</span>
@@ -33,7 +33,7 @@
                         {% set _site_name_length = easyadmin_config('site_name')|length <= 10 ? 'short'
                             : easyadmin_config('site_name')|length <= 12 ? 'medium' : 'long;'
                         %}
-                        <a href="{{ path('web_homepage') }}" class="navbar-brand">FunnyWars</a>
+                        <a href="{{ path('web_homepage') }}" class="navbar-brand" title="HOME">FunnyWars</a>
                         {% endblock header_logo %}
                     </div>
                     {% endblock navbar_header %}
@@ -41,18 +41,21 @@
 
                 <div class="collapse navbar-collapse" id="header-nav">
                     {% block header_menu %}
-                        <ul id="header-menu" class="nav navbar-nav" >
                             {% block navigation_items %}
                                 {% for item in easyadmin_config('entities') %}
+                        <ul id="header-menu" class="nav navbar-nav" style="z-index:1000;background-color: #222;position:relative" >
                                     <li class="{{ item.name|lower == app.request.get('entity')|lower ? 'active' : '' }}">
                                         <a href="{{ path('admin', { entity: item.name, action: 'list', view: 'list' }) }}">
                                             {{- item.label|trans -}}
                                         </a>
                                     </li>
+                        </ul>
                                 {% endfor %}
                             {% endblock %}
-                        </ul>
                     {% endblock header_menu %}
+                    <ul class="nav navbar-nav navbar-right" style="z-index:1000;  background-color: #222;position:relative" >
+                        <a href="{{ path('fos_user_security_logout') }}"  class="btn btn-primary" style="float:right;margin-top:4%;"role="button"> Cerrar Sesión </a>
+                    </ul>
                 </div>
 
                 <div id="header-footer" class="navbar-right">
