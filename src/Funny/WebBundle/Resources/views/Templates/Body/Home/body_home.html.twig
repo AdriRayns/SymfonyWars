@@ -9,12 +9,15 @@
         <div id="myCarouselDestacados" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators indicators">
-                <li data-target="#myCarouselDestacados" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarouselDestacados" data-slide-to="1"></li>
-                <li data-target="#myCarouselDestacados" data-slide-to="2"></li>
-                <li data-target="#myCarouselDestacados" data-slide-to="3"></li>
-                <li data-target="#myCarouselDestacados" data-slide-to="4"></li>
-                <li data-target="#myCarouselDestacados" data-slide-to="5"></li>
+            {%set countHighlights = 0 %}
+            {% for product in products %}
+            {%set countHighlights = countHighlights+1 %}
+                {% if (products is not null and product.highlight and not loop.first) %} 
+                    <li data-target="#myCarouselDestacados" data-slide-to="1"></li>
+                {%elseif (products is not null and product.highlight and loop.first) %}
+                    <li data-target="#myCarouselDestacados" data-slide-to="0" class="active"></li>
+                {%endif%}
+            {%endfor%}
             </ol>
             <!-- Wrapper for slides -->
             <div class="carousel-inner " role="listbox">
