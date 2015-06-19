@@ -5,7 +5,7 @@
     {% if (products is defined and products is not empty) %}
     <!-- @if($datos['primerDestacado'] != null) -->
     <div class="col-xs-12 col-sm-12 col-lg-12 ">
-        <header class=""><h4> PRODUCTOS DESTACADOS</h4></header>
+        <header class=""><h4 class="funny-header"> PRODUCTOS DESTACADOS</h4></header>
         <div id="myCarouselDestacados" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators indicators">
@@ -89,7 +89,7 @@
 
     <!-- DIV NOVEDADES -->
     <div class="col-sm-4">
-        <header class=""><h4> NOVEDADES</h4> </header>
+        <header class=""><h4 class="funny-header"> NOVEDADES</h4> </header>
         <div class="">
             <div id="myCarouselNovedades" class="carousel slide" data-ride="carousel" data-interval="">
                 <!-- Indicators -->
@@ -143,7 +143,7 @@
     <!-- END DIV NOVEDADES -->
     <div class="col-sm-4">
     {%if is_granted('ROLE_USER') %}
-        <header class=""><h4> Ofertas</h4> </header>
+        <header class=""><h4 class="funny-header"> Ofertas</h4> </header>
         <div class="">
             <div id="myCarouselOfertas" class="carousel slide" data-ride="carousel" data-interval="">
                 <!-- Indicators -->
@@ -196,7 +196,7 @@
     {% endif %}
     </div>
     <div class="col-sm-4">
-        <header class=""> <h4>TALLER </h4></header>
+        <header class=""> <h4 class="funny-header">TALLER </h4></header>
         <div class="">
             <a href="#"><img class="img-responsive img-center" src="{{asset('bundles/web/img/banco.png')}}" title="Reparaciones"></a>
             <div class="">

@@ -16,7 +16,7 @@ footer li{ text-decoration: none!important;  background-color: black}
 footer a{color: white!important; text-decoration: underline;}
 footer a:hover{color: #c8d0b2!important; text-decoration: underline;}
 
-h4 {
+.funny-header {
     text-align: center;
     padding: 0.6%;
     margin-bottom: 0;
