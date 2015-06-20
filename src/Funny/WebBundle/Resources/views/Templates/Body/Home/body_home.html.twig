@@ -168,9 +168,10 @@
                                 {% if product.ImgRoute is not null %}/{{product.getWebPath}}{% else %}{{asset('bundles/web/img/') ~'default_notFound.png' }} {%endif%}
                                 " title="{{product.name}}" alt="{{product.name}}">
                                 <div class="">
-                                    <p<p class="footerCajas"> {{product.name}}</p>
+                                    <p class="footerCajas"> {{product.name}}</p>
                                 </div>
-                                <a href="{{ path('product_see', {'product_slug': product.slug }) }}" class="btn btn-primary "style="margin-right:14%;float:right;" role="button">Ver Producto</a>
+                                <a href="{{ path('product_see', {'product_slug': product.slug }) }}" class="btn btn-primary "style="margin-right:14%;float:right;" role="button">Ver Producto</a> 
+                                <span style="font-size:1.1em"class="label label-warning">Descuento de: {{ product.discount }} %</span>
                             </div>
                         {% elseif (product.discount and counter == 0) %}
                             {% set counter =  1 %}
@@ -183,6 +184,7 @@
                                     <p class="footerCajas"> {{product.name}}</p>
                                 </div>
                                 <a href="{{ path('product_see', {'product_slug': product.slug }) }}" class="btn btn-primary " style="margin-right:14%;float:right;"role="button">Ver Producto</a>
+                                <span style="font-size:1.1em"class="label label-warning">Descuento de: {{ product.discount }} %</span>
                             </div>
                         {% endif %}
                     {% endfor %}

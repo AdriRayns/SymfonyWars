@@ -59,25 +59,7 @@ class AdminController extends BaseAdminController {
     }
 
 
-
-
-
     public function prePersistProductEntity($entity){
-        /*
-        $slug = $this->get('slugger')->slugify($entity->getTitle());
-        $entity->setSlug($slug);
-
-
-
-        if(array_key_exists('img',$post))
-            return var_dump($post['img']);
-        else
-            return var_dump($post);
-
-        $post = $this->get('request')->get("img");
-        return var_dump($post);
-
-        */
         $file = $this->get('request')->files->get('form');
         $entity->preUpload($file['file']);
         $entity->upload();
@@ -88,8 +70,10 @@ class AdminController extends BaseAdminController {
     public function preUpdateProductEntity($entity){
         $entity->removeUpload();
         $file = $this->get('request')->files->get('form');
-        $entity->preUpload($file['file']);
-        $entity->upload();
+        if($file['file'] != null){
+            $entity->preUpload($file['file']);
+            $entity->upload();
+        }
 
     }
 
