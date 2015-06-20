@@ -68,26 +68,15 @@ class AdminController extends BaseAdminController {
 
 
     public function preUpdateProductEntity($entity){
-        $entity->removeUpload();
         $file = $this->get('request')->files->get('form');
+        var_dump($file['file']);
         if($file['file'] != null){
+            $entity->removeUpload();
             $entity->preUpload($file['file']);
             $entity->upload();
         }
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
     public function createProductForm($entity, array $entityProperties){
 
