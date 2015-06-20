@@ -1587,6 +1587,9 @@ pre code {
     .container {
         width: 750px;
     }
+    #registerForm {
+        margin-left: 18%;
+    }
 }
 @media (min-width: 992px) {
     .nombreDestacados p { font-size: 18px; }
@@ -1595,10 +1598,11 @@ pre code {
     }
 }
 @media (min-width: 1200px) {
-    .nombreDestacados p { font-size: 1em; }
-    .container {
-        width: 1170px;
-    }
+.nombreDestacados p { font-size: 1em; }
+.container {
+    width: 1170px;
+}
+
 }
 .container-fluid {
     padding-right: 15px;
@@ -1775,6 +1779,9 @@ pre code {
 @media (min-width: 768px) {
     .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
         float: left;
+    }
+    #registerForm{
+        margin-left: 18%;
     }
     .col-sm-12 {
         width: 100%;

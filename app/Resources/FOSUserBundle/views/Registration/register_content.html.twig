@@ -1,11 +1,11 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 <div class="row">
-    <div class="col-xs-12 col-sm-12 col-lg-12 " style="background: rgb(236, 236, 236) none repeat scroll 0% 0%;width: 450px;margin: 0px auto">
-        <header class="" style=" padding-left: 10px;color: rgb(20, 25, 30);margin: 0px 0px 10px;text-align: center;"><p> {{ 'registration.submit'|trans }} </p></header>
+    <div id="registerForm"class="col-xs-12 col-sm-8 col-lg-8">
+        <header class="funny-header" style="color:white!important;color: rgb(20, 25, 30)"><h4 style="font-weight:bold;"> REGISTRO </h4></header>
         <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
             {{ form_widget(form) }}
-            <input type="submit" value="{{ 'registration.submit'|trans }}" />
+            <input type="submit" value="{{ 'registration.submit'|trans }}" class="btn btn-primary" />
         </form>
     </div>
 </div>
@@ -14,6 +14,5 @@
     $('.fos_user_registration_register div').each(function(){
         $(this).css('padding','5px');
     });
-    $('.fos_user_registration_register').parent().css('margin-left','20%');
     $('input[name=stringToSearch]').parent().remove();
 </script>

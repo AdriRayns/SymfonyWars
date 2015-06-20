@@ -27,7 +27,7 @@
                     <div class="col-xs-6 col-sm-4 col-lg-4 vOffset3 nombreDestacados">
                         <p style="text-decoration:underline;">{{products[0].name}}</p>
                         <p >Precio: {{products[0].price}} €</p>
-                        <p>Descuento: {{products[0].discount}} %</p>
+                        <p>Descuento: {{products[0].discount}} % </p>
                     </div>
                     <div class="col-xs-6 col-sm-4 col-lg-4 vOffset1">
                          {% if products[0].ImgRoute is not null %}
@@ -49,8 +49,8 @@
                         <div class="item">
                             <div class="col-xs-6 col-sm-4 col-lg-4 vOffset3 nombreDestacados">
                                 <p style="text-decoration:underline;">{{product.name}} </p>
-                                <p>Precio: {{product.price}}</p>
-                                <p>Descuento: {{product.discount}}</p>
+                                <p>Precio: {{product.price}} €</p>
+                                <p>Descuento: {{product.discount}} % </p>
                             </div>
                             <div class="col-xs-6 col-sm-4 col-lg-4 vOffset1">
                                 {% if product.ImgRoute is null %}
@@ -64,7 +64,7 @@
                             </div>
                             <div class="col-xs-12 col-sm-12 col-lg-12 ">
                                 <a href="{{ path('product_see', {'product_slug': products[0].slug }) }}" class="btn btn-primary " style="margin-right:5%;float:right;"role="button">Ver Producto</a>
-                            </div>>
+                            </div>
                         </div>
                     {% endif %}
                 {% endfor %}

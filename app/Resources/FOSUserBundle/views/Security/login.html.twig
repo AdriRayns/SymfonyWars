@@ -4,8 +4,8 @@
 
 {% block fos_user_content %}
 <div class="row">
-    <div class="col-xs-12 col-sm-12 col-lg-12 ">
-        <header class=""><p> {{ 'Iniciar sesión'|trans }}</p></header>
+    <div id="registerForm"class="col-xs-12 col-sm-8 col-lg-8">
+        <header class="funny-header"><h4> {{ 'Iniciar sesión'|trans }}</h4></header>
         {% if error %}
         <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
         {% endif %}

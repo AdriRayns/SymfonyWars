@@ -1,7 +1,7 @@
 {% trans_default_domain 'FOSUserBundle' %}
 <div class="row">
-    <div class="col-xs-12 col-sm-12 col-lg-12 ">
-        <header class=""><p>Modificar perfil: {{ app.user.username }}</p></header>
+    <div id="registerForm"class="col-xs-12 col-sm-8 col-lg-8">
+        <header class="funny-header"><h4 >Modificar perfil: {{ app.user.username }}</h4></header>
 
         <form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit">
             {{ form_widget(form) }}
