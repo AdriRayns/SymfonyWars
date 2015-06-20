@@ -23,19 +23,26 @@ footer a:hover{color: #c8d0b2!important; text-decoration: underline;}
     background-color: rgb(199, 199, 199);
     
 }
+
+
 /* --------TEXTOS-------- */
 
-.descripcionDestacados {
+.highlightDescription {
     font-size: 26px;
-    margin-top: 5%;
     font-family: sans-serif;
     font-weight: bold!important;
     text-align: center;
     color: #84a039;
+    ms-transform: rotate(7deg); /* IE 9 */
+    -webkit-transform: rotate(7deg); /* Chrome, Safari, Opera */
+    transform: rotate(7deg);
 }
 
 
 .nombreDestacados p{
+    ms-transform: rotate(-5deg); /* IE 9 */
+    -webkit-transform: rotate(-5deg); /* Chrome, Safari, Opera */
+    transform: rotate(-5deg);
     position: absolute;
     top: 35%;
     left: 32%;
@@ -43,7 +50,7 @@ footer a:hover{color: #c8d0b2!important; text-decoration: underline;}
     font-family: sans-serif;
     font-style: italic;
     font-weight: bold;
-    color: #FDD1A8;
+    color: #DFE0DC;
 }
 
 

@@ -1570,11 +1570,15 @@ pre code {
 }
 @media (max-width: 430px) {
     .nombreDestacados p { 
+        -ms-transform: rotate(-7deg); /* IE 9 */
+        -webkit-transform: rotate(-7deg); /* Chrome, Safari, Opera */
+        transform: rotate(-7deg);
         margin-top: 10%; 
-        margin-left: -30%;
+        margin-left: -25%;
         font-size: 22px;
-        color: #374a08!important;
+        color: #7F8179!important;
         font-weight: bold!important;
+        text-decoration: underline;
     }
     .nombreDestacados img { display: none; }
     
