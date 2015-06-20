@@ -28,7 +28,6 @@ footer a:hover{color: #c8d0b2!important; text-decoration: underline;}
 /* --------TEXTOS-------- */
 
 .highlightDescription {
-    font-size: 26px;
     font-family: sans-serif;
     font-weight: bold!important;
     text-align: center;
@@ -39,11 +38,12 @@ footer a:hover{color: #c8d0b2!important; text-decoration: underline;}
 }
 
 
+
+
 .nombreDestacados p{
     ms-transform: rotate(-5deg); /* IE 9 */
     -webkit-transform: rotate(-5deg); /* Chrome, Safari, Opera */
     transform: rotate(-5deg);
-    position: absolute;
     top: 35%;
     left: 32%;
     text-align: center;

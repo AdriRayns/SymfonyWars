@@ -24,10 +24,10 @@
 
                 <!-- ITEM 1 carousel-->
                 <div class="item active">
-                    <div class="col-xs-6 col-sm-4 col-lg-4 vOffset3 ">
-                        <p>{{products[0].name}}</p></br>
-                        <p>Precio: {{products[0].price}}</p></br>
-                        <p>Descuento: {{products[0].discount}}</p>
+                    <div class="col-xs-6 col-sm-4 col-lg-4 vOffset3 nombreDestacados">
+                        <p style="text-decoration:underline;">{{products[0].name}}</p>
+                        <p >Precio: {{products[0].price}} €</p>
+                        <p>Descuento: {{products[0].discount}} %</p>
                     </div>
                     <div class="col-xs-6 col-sm-4 col-lg-4 vOffset1">
                          {% if products[0].ImgRoute is not null %}
@@ -39,14 +39,18 @@
                     <div class="hidden-xs col-sm-4 col-lg-4 vOffset3 highlightDescription">
                         <p>{{products[0].description}}</p>
                     </div>
-                    <a href="{{ path('product_see', {'product_slug': products[0].slug }) }}" class="btn btn-primary " role="button">Ver Producto</a>
+                    <div class="col-xs-12 col-sm-12 col-lg-12 ">
+                        <a href="{{ path('product_see', {'product_slug': products[0].slug }) }}" class="btn btn-primary " style="float:right"role="button">Ver Producto</a>
+                    </div>
                 </div>
                 <!-- ITEM 2 carousel-->
                 {% for product in products %}
                     {% if (product.highlight and not loop.first) %}
                         <div class="item">
                             <div class="col-xs-6 col-sm-4 col-lg-4 vOffset3 nombreDestacados">
-                                <p>{{product.name}} </p>
+                                <p style="text-decoration:underline;">{{product.name}} </p>
+                                <p>Precio: {{product.price}}</p>
+                                <p>Descuento: {{product.discount}}</p>
                             </div>
                             <div class="col-xs-6 col-sm-4 col-lg-4 vOffset1">
                                 {% if product.ImgRoute is null %}
