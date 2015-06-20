@@ -1575,10 +1575,9 @@ pre code {
         transform: rotate(-7deg);
         margin-top: 10%; 
         margin-left: -25%;
-        font-size: 22px;
+        font-size: 1.5em;
         color: #BE862E!important;
         font-weight: bold!important;
-        text-decoration: underline;
     }
     .nombreDestacados img { display: none; }
     
@@ -1596,7 +1595,7 @@ pre code {
     }
 }
 @media (min-width: 1200px) {
-    .nombreDestacados p { font-size: 22px; }
+    .nombreDestacados p { font-size: 1em; }
     .container {
         width: 1170px;
     }
@@ -4262,6 +4261,15 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
         background-image: none;
     }
 }
+.nombreDestacados {
+    padding-left: 30px;
+    padding-right: 0px;
+}
+.nombreDestacados p {
+    font-size: 1.6em;
+
+}
+
 @media (min-width: 768px) {
     .navbar-nav {
         float: left;

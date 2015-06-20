@@ -1,7 +1,11 @@
 
 /* --------ELEMENTOS DEL DOM-------- */
 body{
-
+    background-color: rgba(39, 37, 37, 0.56)!important;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857;
+    color: #08131D;
 }
 footer{
     position: absolute;
@@ -16,12 +20,29 @@ footer li{ text-decoration: none!important;  background-color: black}
 footer a{color: white!important; text-decoration: underline;}
 footer a:hover{color: #c8d0b2!important; text-decoration: underline;}
 
+.tituloProfesionales {
+    font-weight: bold;
+    color: rgb(65, 76, 93) !important;
+    text-shadow: -1px 0 rgb(249, 241, 241), 0 1px rgb(253, 253, 253), 1px 0 rgb(252, 248, 248), 0 -1px rgb(253, 253, 253);
+    font-size: 36px;
+    text-align: center;
+}
+
 .funny-header {
     text-align: center;
     padding: 0.6%;
     margin-bottom: 0;
     background-color: rgb(199, 199, 199);
-    
+    background: rgba(173,171,173,1);
+    background: -moz-linear-gradient(left, rgba(173,171,173,1) 0%, rgba(28,28,28,1) 50%, rgba(173,171,173,1) 99%, rgba(173,171,173,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(173,171,173,1)), color-stop(50%, rgba(28,28,28,1)), color-stop(99%, rgba(173,171,173,1)), color-stop(100%, rgba(173,171,173,1)));
+    background: -webkit-linear-gradient(left, rgba(173,171,173,1) 0%, rgba(28,28,28,1) 50%, rgba(173,171,173,1) 99%, rgba(173,171,173,1) 100%);
+    background: -o-linear-gradient(left, rgba(173,171,173,1) 0%, rgba(28,28,28,1) 50%, rgba(173,171,173,1) 99%, rgba(173,171,173,1) 100%);
+    background: -ms-linear-gradient(left, rgba(173,171,173,1) 0%, rgba(28,28,28,1) 50%, rgba(173,171,173,1) 99%, rgba(173,171,173,1) 100%);
+    background: linear-gradient(to right, rgba(173,171,173,1) 0%, rgba(28,28,28,1) 50%, rgba(173,171,173,1) 99%, rgba(173,171,173,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#adabad', endColorstr='#adabad', GradientType=1 );
+    color: white;
+    font-weight: bold;
 }
 
 
@@ -37,20 +58,25 @@ footer a:hover{color: #c8d0b2!important; text-decoration: underline;}
     transform: rotate(7deg);
 }
 
+.highlightDescription p{
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
 
 
 
 .nombreDestacados p{
-    ms-transform: rotate(-5deg); /* IE 9 */
-    -webkit-transform: rotate(-5deg); /* Chrome, Safari, Opera */
-    transform: rotate(-5deg);
+    ms-transform: rotate(-7deg); /* IE 9 */
+    -webkit-transform: rotate(-7deg); /* Chrome, Safari, Opera */
+    transform: rotate(-7deg);
     top: 35%;
     left: 32%;
+    font-size: 1.8em;
     text-align: center;
     font-family: sans-serif;
     font-style: italic;
     font-weight: bold;
     color: #BE862E;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 
@@ -71,9 +97,10 @@ footer a:hover{color: #c8d0b2!important; text-decoration: underline;}
 
 
 .footerCajas{
-    height: 30px;
-    padding: 5px;
-    background: linear-gradient(to bottom, #67841c 0%,#d2d6c7 50%,#6a8621 100%);
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-shadow: 3px 3px rgba(92, 90, 100, 0.3);
 }
 .footerCajas > p {
     text-align: center;
@@ -437,22 +464,6 @@ a.close:hover{
     background-color: #14191E;
 }   
 
-
-h1{
-    font-size: 36px;
-    text-align: center;
-    text-decoration: underline;
-    color: rgb(65, 76, 93) !important;
-}   
-body {
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 14px;
-    line-height: 1.42857;
-    color: #08131D;
-    background-color: #E9E9E9; (aquí vas a cambiar tambien el color del fondo de a web. esta bien :D)
-}
-
-    
 .center{
     padding: 10px;
     margin: 0px auto;

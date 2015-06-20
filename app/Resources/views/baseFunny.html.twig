@@ -27,9 +27,9 @@
         <!-- Template NAV -->
         {% include 'WebBundle:Templates:Nav/nav_bar.html.twig' %}
         <!--Sección tagline y búsqueda -->
-        <div class="row" style="width: 95%;">
+        <div class="row" style="margin-right:1%">
             <div class="col-lg-12">
-                <h1 class="tagline"> Profesionales del Airsoft </h1><br>
+                <h1 class="tagline tituloProfesionales" > Profesionales del Airsoft </h1><br>
                 <div class="">
                     <form name="search_form" method="POST" action="{{path('web_search_results')}}" style="float:right">
                         <input name="stringToSearch" type="text" placeholder="Busca productos o categorías"/ value="{%if stringToSearch is defined %}{{stringToSearch}}{%endif%}" />

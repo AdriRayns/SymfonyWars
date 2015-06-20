@@ -40,7 +40,7 @@
                         <p>{{products[0].description}}</p>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-lg-12 ">
-                        <a href="{{ path('product_see', {'product_slug': products[0].slug }) }}" class="btn btn-primary " style="float:right"role="button">Ver Producto</a>
+                        <a href="{{ path('product_see', {'product_slug': products[0].slug }) }}" class="btn btn-primary " style="margin-right:5%;float:right;"role="button">Ver Producto</a>
                     </div>
                 </div>
                 <!-- ITEM 2 carousel-->
@@ -62,7 +62,9 @@
                             <div class="hidden-xs col-sm-4 col-lg-4 vOffset3 highlightDescription ">
                                 <p>{{product.description}}</p>
                             </div>
-                            <a href="{{ path('product_see', {'product_slug': product.slug }) }}" class="btn btn-primary " role="button">Ver Producto</a>
+                            <div class="col-xs-12 col-sm-12 col-lg-12 ">
+                                <a href="{{ path('product_see', {'product_slug': products[0].slug }) }}" class="btn btn-primary " style="margin-right:5%;float:right;"role="button">Ver Producto</a>
+                            </div>>
                         </div>
                     {% endif %}
                 {% endfor %}
@@ -111,10 +113,10 @@
                                 <img class="img-responsive img-center" src="
                                 {% if product.ImgRoute is not null %}/{{product.getWebPath}}{% else %}{{asset('bundles/web/img/') ~'default_notFound.png' }} {%endif%}
                                 " title="{{product.name}}" alt="{{product.name}}">
-                                <a href="{{ path('product_see', {'product_slug': product.slug }) }}" class="btn btn-primary " role="button">Ver Producto</a>
                                 <div class="">
-                                    <p>{{product.name}}</p>
+                                    <p class="footerCajas"> {{product.name}}</p>
                                 </div>
+                                <a href="{{ path('product_see', {'product_slug': product.slug }) }}" class="btn btn-primary " style="margin-right:14%;float:right;"role="button">Ver Producto</a>
                             </div>
                         {% elseif (product.novelty and counter == 0) %}
                             {% set counter =  1 %}
@@ -123,10 +125,10 @@
                                 <img class="img-responsive img-center" src="
                                 {% if product.ImgRoute is not null %}/{{product.getWebPath}}{% else %}{{asset('bundles/web/img/') ~'default_notFound.png' }} {%endif%}
                                 " title="{{product.name}}" alt="{{product.name}}">
-                                <a href="{{ path('product_see', {'product_slug': product.slug }) }}" class="btn btn-primary " role="button">Ver Producto</a>
                                 <div class="">
-                                    <p>{{product.name}}</p>
+                                    <p class="footerCajas"> {{product.name}}</p>
                                 </div>
+                                <a href="{{ path('product_see', {'product_slug': product.slug }) }}" class="btn btn-primary " style="margin-right:14%;float:right;"role="button">Ver Producto</a>
                             </div>
                         {% endif %}
                     {% endfor %}
@@ -146,7 +148,7 @@
     <!-- END DIV NOVEDADES -->
     <div class="col-sm-4">
     {%if is_granted('ROLE_USER') %}
-        <header class=""><h4 class="funny-header"> Ofertas</h4> </header>
+        <header class=""><h4 class="funny-header"> OFERTAS</h4> </header>
         <div class="">
             <div id="myCarouselOfertas" class="carousel slide" data-ride="carousel" data-interval="">
                 <!-- Indicators -->
@@ -165,10 +167,10 @@
                                 <img class="img-responsive img-center" src="
                                 {% if product.ImgRoute is not null %}/{{product.getWebPath}}{% else %}{{asset('bundles/web/img/') ~'default_notFound.png' }} {%endif%}
                                 " title="{{product.name}}" alt="{{product.name}}">
-                                <a href="{{ path('product_see', {'product_slug': product.slug }) }}" class="btn btn-primary " role="button">Ver Producto</a>
                                 <div class="">
-                                    <p>{{product.name}}</p>
+                                    <p<p class="footerCajas"> {{product.name}}</p>
                                 </div>
+                                <a href="{{ path('product_see', {'product_slug': product.slug }) }}" class="btn btn-primary "style="margin-right:14%;float:right;" role="button">Ver Producto</a>
                             </div>
                         {% elseif (product.novelty and counter == 0) %}
                             {% set counter =  1 %}
@@ -177,10 +179,10 @@
                                 <img class=" img-responsive img-center" src="
                                 {% if product.ImgRoute is not null %}/{{product.getWebPath}}{% else %}{{asset('bundles/web/img/') ~'default_notFound.png' }} {%endif%}
                                 " title="{{product.name}}" alt="{{product.name}}">
-                                <a href="{{ path('product_see', {'product_slug': product.slug }) }}" class="btn btn-primary " role="button">Ver Producto</a>
-                                <div class="">
-                                    <p> {{product.name}}</p>
+                                <div>
+                                    <p class="footerCajas"> {{product.name}}</p>
                                 </div>
+                                <a href="{{ path('product_see', {'product_slug': product.slug }) }}" class="btn btn-primary " style="margin-right:14%;float:right;"role="button">Ver Producto</a>
                             </div>
                         {% endif %}
                     {% endfor %}
@@ -200,8 +202,8 @@
     </div>
     <div class="col-sm-4">
         <header class=""> <h4 class="funny-header">TALLER </h4></header>
-        <div class="">
-            <a href="#"><img class="img-responsive img-center" src="{{asset('bundles/web/img/banco.png')}}" title="Reparaciones"></a>
+        <div >
+            <a href="#" ><img class="img-responsive img-center" style="margin-top:7%" src="{{asset('bundles/web/img/banco.png')}}" title="Reparaciones"></a>
             <div class="">
                 <p></p>
             </div>
