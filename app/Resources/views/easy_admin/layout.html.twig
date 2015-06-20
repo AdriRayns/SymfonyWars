@@ -5,6 +5,12 @@
     <link href="{{asset('bundles/web/css/bootstrap.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('bundles/web/css/jquery-ui.min.css')}}">
     <link rel="stylesheet" href="{{ asset('bundles/easyadmin/stylesheet/font-awesome.min.css') }}">
+    <style>
+        tr a{color: #1D0EA6!important;}
+        td {color: white;}
+        #form-actions-row a{color:white;}
+        #content-actions a:hover{ color:white; font-weight: bold!important}
+    </style>
 {% endblock head_stylesheets %}
 {% block body %}
 {% set allCategories = globalCategories.getAllCategories %}
