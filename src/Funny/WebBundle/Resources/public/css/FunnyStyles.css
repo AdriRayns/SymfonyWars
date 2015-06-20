@@ -32,7 +32,7 @@ footer a:hover{color: #c8d0b2!important; text-decoration: underline;}
     font-family: sans-serif;
     font-weight: bold!important;
     text-align: center;
-    color: #84a039;
+    color: #BE862E;
     ms-transform: rotate(7deg); /* IE 9 */
     -webkit-transform: rotate(7deg); /* Chrome, Safari, Opera */
     transform: rotate(7deg);
@@ -50,7 +50,7 @@ footer a:hover{color: #c8d0b2!important; text-decoration: underline;}
     font-family: sans-serif;
     font-style: italic;
     font-weight: bold;
-    color: #DFE0DC;
+    color: #BE862E;
 }
 
 
