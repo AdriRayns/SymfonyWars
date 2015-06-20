@@ -172,7 +172,7 @@
                                 </div>
                                 <a href="{{ path('product_see', {'product_slug': product.slug }) }}" class="btn btn-primary "style="margin-right:14%;float:right;" role="button">Ver Producto</a>
                             </div>
-                        {% elseif (product.novelty and counter == 0) %}
+                        {% elseif (product.discount and counter == 0) %}
                             {% set counter =  1 %}
 
                             <div class="item active">
