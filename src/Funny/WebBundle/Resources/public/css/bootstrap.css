@@ -1575,7 +1575,7 @@ pre code {
         transform: rotate(-7deg);
         margin-top: 10%; 
         margin-left: -25%;
-        font-size: 1.5em;
+        font-size: 1em!important;
         color: #BE862E!important;
         font-weight: bold!important;
     }
@@ -1583,7 +1583,7 @@ pre code {
     
 }
 @media (min-width: 768px) {
-    .nombreDestacados p { font-size: 15px; }
+    .nombreDestacados p { font-size: 1.4em!important; }
     .container {
         width: 750px;
     }
