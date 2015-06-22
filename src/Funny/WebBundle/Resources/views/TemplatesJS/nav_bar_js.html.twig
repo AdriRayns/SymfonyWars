@@ -1,37 +1,39 @@
 <script type="text/javascript" >
     $(function() {
+        $('#login_form button').addClass('btn-primary');
+        $('</br></br>').insertBefore($('#login_form input[type="checkbox"]'));
+        $("<label id='label_username'for='username'>Username: </label>").insertBefore($('#username'));
+        $("<label id='label_password'for='password'>Password: </label>").insertBefore($('#password'));
+        $('</br>').insertBefore($('#label_password'));
+
+        $('#login_form label').each(function(){
+            $(this).css('color','white');
+        });
+
         $('#nav_user_buttom').click(function(event){
             var visibility= $('.rectangulo > i').css('visibility');
-            if( visibility === 'visible'){
-                $('.rectangulo > i').css('visibility','hidden');
-                $('.triangulo > i').css('visibility','hidden');
-            } else {
-                $('#username').click();
+            if( visibility === 'hidden'){
                 $('.rectangulo > i').css('visibility','visible');
                 $('.triangulo > i').css('visibility','visible');
             }
         });
 
-        $('.rectangulo > i').mouseleave(function(){
-            var visibility= $('.rectangulo > i').css('visibility');
-            if( visibility === 'visible'){
+        $(document).mouseup(function(e) {
+            var container = $("#nav_user_buttom");
+            var form = $('#interactiveLogin').find('*');
+            if (!container.is(e.target) && !form.is(e.target) && container.has(e.target).length === 0) {
                 $('.rectangulo > i').css('visibility','hidden');
                 $('.triangulo > i').css('visibility','hidden');
-            } else {
-                $('.rectangulo > i').css('visibility','visible');
-                $('.triangulo > i').css('visibility','visible');
             }
         });
 
-         $('#dropdown_gestion > a').mouseover(function(){
-            console.log("hola");
+        $('#dropdown_gestion > a').mouseover(function(){
             $(this).parent().addClass('open');
-         });
-         $('#dropdown_gestion > ul ').mouseleave(function(){
-            console.log("hola");
+        });
+        $('#dropdown_gestion > ul ').mouseleave(function(){
             $('#dropdown_gestion').removeClass('open');
 
-         });
+        });
 
 
 

@@ -1,32 +1,45 @@
 {% extends 'baseFunny.html.twig' %}
 
 {% block body %}
+{% if is_granted('ROLE_ADMIN') %}
+<div class="col-md-4 ">
+    <a href="{{ path('easy_admin_bundle' ,{'entity':'Product', 'view':'list', 'action':'edit', 'id': product.id } ) }}" role="button" class="btn btn-warning" style="margin:1%;position:relative;float:left;z-index:1000">Modificar</a>
+</div>
+{% endif %} 
 <div class="row">
     <div class="col-md-12 ">
-        <header class=""><p> {{product.name}} </p></header>
+        <header class=""><h4 class="funny-header">{{product.name}}</h4></header>
+        {% if is_granted('ROLE_USER') %}
+            <div class="col-lg-4 nombreDestacados vOffset3">
+                <p><strong>Precio:</strong> <strike>{{product.price }} €</strike></p>
+                <p><strong>Descuento:</strong> {{product.discount }} % <br><br>
+                    <span class="label label-info">Precio Usuario: <strong> {{product.price * ((100-product.discount)/100)  }} €</strong></span>
+                </p>
+            </div>
+        {% else %}
+            <div class="col-lg-4 nombreDestacados vOffset3">
+                <p> <strong>Precio:</strong> {{product.price }} €</p>
+                <p><strong>Registrate para obtener descuento de:</strong> {{product.discount }} % <br><br></p>
+            </div>
+        {% endif %}
         <div class="col-lg-4">
             <img src="{% if product.ImgRoute is not null %}/{{product.getWebPath}}{% else %}{{asset('bundles/web/img/') ~'default_notFound.png' }} {%endif%}"  style="width: 350px">
         </div>
-        {% if is_granted('ROLE_USER') %}
-            <div class="col-lg-3">
-                <h3> <strong>Precio:</strong> <strike>{{product.price }} €</strike></h3>
-                <h3><strong>Descuento:</strong> {{product.discount }} % <br><br>
-                <span class="label label-info">Precio Usuario: <strong> {{product.price * ((100-product.discount)/100)  }} €</strong></span>
-                </h3>
+        <div class="col-lg-4 highlightDescription vOffset3">
+            {% if (product.description != "" or product.description == null) %}
+                <p>{{product .description}}</p>
+            {% else %}
+                <p>No hay descripción para este producto</p>
+            {% endif %}
+        </div>
+        <div class="col-md-12 ">
+            <div style="float:right">
+                {{ twitterButton( { 'url': "http://pfg.com/product/" ~ product.slug   } ) }}
             </div>
-        {% else %}
-            <div class="col-lg-3">
-                <h3> <strong>Precio:</strong> {{product.price }} €</h3>
-                <h3><strong>Registrate para obtener descuento de:</strong> {{product.discount }} % <br><br>
+            <div style="float:right">
+                {{ facebookButton( {'url':"http://pfg.nvqlt.com/product/" ~ product.slug  }) }}
             </div>
-        {% endif %}
-            <div class="col-lg-4">
-                {% if (product.description != "" or product.description == null) %}
-                    {{product .description}}
-                {% else %}
-                    No hay descripción para este producto
-                {% endif %}
-            </div>
+        </div>
     </div>
 </div>
 {% endblock %}
